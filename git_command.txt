@@ -1,0 +1,6 @@
+git status /* etats 
+git add /* 
+git pull /*teelcharger les modif
+git push /* envoie
+git log /* l historique
+git commit -m "message" 
