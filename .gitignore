@@ -3,4 +3,4 @@
 /conf/
 /conf/*
 build.xml
-
+/WEB-INF/glassfish-web.xml
