@@ -1,8 +1,6 @@
 package database;
 
-import java.util.List;
-
-import metier.Logement;
+import metier.Maison;
 
 public class TestMain {
 
@@ -10,20 +8,29 @@ public class TestMain {
      * @param args
      */
     public static void main(String[] args) {
-        LogementDAO impl = new LogementDAO();
-        Logement l = new Logement();
-        l.setLatitude("12.01452jjjj");
-        l.setLongitude("-17.123652");
-        l.setNombreBain(2);
-        l.setNombreChambre(5);
-        l.setNombreSalon(1);
-        l.setPrix(150000);
-        l.setType("batiment");
-        //impl.addLogement(l);
-        List<Logement> list = impl.listBatiments();
+        System.out.println("debut de la fonction");
+        MaisonDAO impl = new MaisonDAO();
+        Maison maison = new Maison();
+        maison.setAddress("dakar");
+        maison.setDateConstruction("12/12/63");
+        maison.setDescription("ceci est une description");
+        maison.setNombreBalcon(2);
+        maison.setNombreChambre(5);
+        maison.setNombreCuisine(1);
+        maison.setNombreEtage(2);
+        maison.setNombreParking(1);
+        maison.setNombreToilette(2);
+        maison.setNumLogement(database.MaisonDAO.logement_id);
+        maison.setNumProprietaire(1);
+        maison.setNumVille(1);
+        maison.setPrix(150000);
+        maison.setSurface(5000);
+        impl.addMaison(maison);
+
+        /* List<Logement > list = impl.listBatiments();
         for (Logement logement : list) {
             System.out.println(logement.getLatitude());
-        }
+        }*/
         //impl.deleteLogement(5);
     }
 }

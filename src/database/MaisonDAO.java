@@ -47,8 +47,9 @@ public class MaisonDAO {
 
     public void addMaison(Maison maison) {
         Connection conn = SingletonConnection.getConnection("thies");
+        System.out.println("dans addMaison");
         try {
-            PreparedStatement ps = conn.prepareStatement("insert into table_maison values(?,?,?,?,?,?,?)");
+            PreparedStatement ps = conn.prepareStatement("insert into table_logement values(?,?,?,?,?,?,?)");
             // on ecrire une requette d'insertion sur tous les table.
             /*ps.setString(1, maison.getType());
 			ps.setInt(2, maison.getPrix());
