@@ -3,22 +3,24 @@ package servlet;
 import database.AppartementDAO;
 import database.ChambreDAO;
 import database.MaisonDAO;
+import database.ProprietaireDAO;
 import java.io.IOException;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import metier.Logement;
+import metier.Proprietaire;
 
 public class ControleurServlet extends HttpServlet {
 
     private AppartementDAO implAppartement;
     private MaisonDAO implMaison;
     private ChambreDAO implChambre;
+    private ProprietaireDAO implProprietaire;
 
     @Override
     public void init() throws ServletException {
+        implProprietaire = new ProprietaireDAO();
         implAppartement = new AppartementDAO();
         implMaison = new MaisonDAO();
         implChambre = new ChambreDAO();
@@ -33,49 +35,34 @@ public class ControleurServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        LogementModel model = new LogementModel();
+        Proprietaire p = new Proprietaire();
 
         String action = request.getParameter("action");
-        request.setAttribute("model", model);
+        request.setAttribute("model", p);
 
         if (action != null) {
-            if (action.equals("batiment")) {
-                List<Logement> lBatiment = impl.listBatiments();
-                model.setLogements(lBatiment);
-            } else if (action.equals("appartement")) {
-                List<Logement> lAppartement = impl.listAppartement();
-                model.setLogements(lAppartement);
-            } else if (action.equals("tout")) {
-                List<Logement> logement = impl.listlogements();
-                model.setLogements(logement);
-            } else if (action.equals("Enregistrer")) {
+            if (action.equals("Enregistrer")) {
+                System.out.println("servlet.ControleurServlet.doPost()");
                 try {
-                    model.getLogement().setType(
-                            request.getParameter("type"));
-                    model.getLogement().setPrix(
-                            Integer.parseInt(request.getParameter("prix")));
-                    model.getLogement().setNombreSalon(
-                            Integer.parseInt(request.getParameter("salon")));
-                    model.getLogement().setNombreChambre(
-                            Integer.parseInt(request.getParameter("chambre")));
-                    model.getLogement().setNombreBain(
-                            Integer.parseInt(request.getParameter("bain")));
-                    model.getLogement().setLatitude(
-                            request.getParameter("latitude"));
-                    model.getLogement().setLongitude(
-                            request.getParameter("longitude"));
+                    p.setNom(request.getParameter("nom"));
+                    System.out.println(p.getMail());
+                    p.setPrenom(request.getParameter("prenom"));
+                    p.setAddress(request.getParameter("address"));
+                    p.setMail(request.getParameter("mail"));
+                    p.setTel(request.getParameter("telephone"));
+                    p.setPassword(request.getParameter("password"));
+                    p.setNumProprietaire(12);
 
-                    impl.addLogement(model.getLogement());
+                    implProprietaire.addProprietaire(p);
 
-                    model.setLogements(impl.listlogements());
                 } catch (Exception e) {
-                    model.setErrors(e.getMessage());
+                    e.getMessage();
                 }
 
             }
 
         }
-        request.getRequestDispatcher("index.jsp").forward(request,
+        request.getRequestDispatcher("../index.jsp").forward(request,
                 response);
 
     }

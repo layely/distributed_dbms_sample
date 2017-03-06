@@ -1,6 +1,6 @@
 package database;
 
-import metier.Maison;
+import metier.Proprietaire;
 
 public class TestMain {
 
@@ -9,23 +9,16 @@ public class TestMain {
      */
     public static void main(String[] args) {
         System.out.println("debut de la fonction");
-        MaisonDAO impl = new MaisonDAO();
-        Maison maison = new Maison();
-        maison.setAddress("dakar");
-        maison.setDateConstruction("12/12/63");
-        maison.setDescription("ceci est une description");
-        maison.setNombreBalcon(2);
-        maison.setNombreChambre(5);
-        maison.setNombreCuisine(1);
-        maison.setNombreEtage(2);
-        maison.setNombreParking(1);
-        maison.setNombreToilette(2);
-        maison.setNumLogement(database.MaisonDAO.logement_id);
-        maison.setNumProprietaire(1);
-        maison.setNumVille(1);
-        maison.setPrix(150000);
-        maison.setSurface(5000);
-        impl.addMaison(maison);
+        ProprietaireDAO impl = new ProprietaireDAO();
+        Proprietaire p = new Proprietaire();
+        p.setNumProprietaire(1);
+        p.setNom("diakhoumpa");
+        p.setPrenom("matar");
+        p.setAddress("Dakr parcelle assainie");
+        p.setMail("matar@gmail.com");
+        p.setPassword("monpassword");
+        p.setTel("77 247 93 33");
+        impl.addProprietaire(p);
 
         /* List<Logement > list = impl.listBatiments();
         for (Logement logement : list) {

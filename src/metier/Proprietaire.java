@@ -10,6 +10,14 @@ public class Proprietaire {
     private String mail;
     private String password;
 
+    public int getNumProprietaire() {
+        return numProprietaire;
+    }
+
+    public void setNumProprietaire(int numProprietaire) {
+        this.numProprietaire = numProprietaire;
+    }
+
     public String getNom() {
         return nom;
     }
@@ -24,49 +32,6 @@ public class Proprietaire {
 
     public void setPrenom(String prenom) {
         this.prenom = prenom;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Proprietaire(int numProprietaire, String nomP, String prenomP,
-            String address, String tel, String mail) {
-        super();
-        this.numProprietaire = numProprietaire;
-        this.nom = nomP;
-        this.prenom = prenomP;
-        this.address = address;
-        this.tel = tel;
-        this.mail = mail;
-    }
-
-    public int getNumProprietaire() {
-        return numProprietaire;
-    }
-
-    public void setNumProprietaire(int numProprietaire) {
-        this.numProprietaire = numProprietaire;
-    }
-
-    public String getNomP() {
-        return nom;
-    }
-
-    public void setNomP(String nomP) {
-        this.nom = nomP;
-    }
-
-    public String getPrenomP() {
-        return prenom;
-    }
-
-    public void setPrenomP(String prenomP) {
-        this.prenom = prenomP;
     }
 
     public String getAddress() {
@@ -91,6 +56,14 @@ public class Proprietaire {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 }

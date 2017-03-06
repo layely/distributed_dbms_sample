@@ -397,7 +397,7 @@
 
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head> 
+    </head>
     <body>
         <div class='container'>
             <!-- Header -->
@@ -409,7 +409,7 @@
                     <button class="mobile-menu"><i class="fa fa-bars fa-2x"></i></button>
 
                     <ul class="clearfix">
-                        <li class="active"><a href="index.php?action=tout">Accueil</a>
+                        <li><a href="index.php?action=tout">Accueil</a>
                         </li>
                         <li><a href="presentation.html">Présentation</a>
                         </li>
@@ -421,11 +421,10 @@
                             </ul>
                         </li>
                         </li>
-                        <li><a href="jsp/contact.html">Contact</a>
+                        <li><a href="../jsp/contact.html">Contact</a>
                         </li>
-                        <li><tt/><a><b class='glyphicon glyphicon-log-in'></b>       connection</a></li>
+                        <li class="active"><tt/><a><b class='glyphicon glyphicon-log-in'></b>       connection</a></li>
                     </ul>
-
 
 
 
@@ -435,38 +434,78 @@
 
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="section-collection box-white padding-all">
-                            <div class="title-border">Nos projets</div>
+                    <div class="col-md-8">
+                        <form class="form-horizontal" method="post" action="ajout.php?action=Enregistrer">
+                            <br><br>
+                            <div class="form-group">
+                                <label for="nom" class="col-sm-4 control-label">Entrer votre Nom</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="prenom" class="col-sm-4 control-label">Entrer votre Prenom</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="prenom" name="prenom" placeholder="fist name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address" class="col-sm-4 control-label">Adresse</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="address" name="address" placeholder="address">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="tel" class="col-sm-4 control-label">Entrer votre numero de telephone</label>
+                                <div class="col-sm-8">
+                                    <input type="numb" class="form-control" id="tel" name="telephone" placeholder="telephone">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="mail" class="col-sm-4 control-label">Entrer votre Address email</label>
+                                <div class="col-sm-8">
+                                    <input type="mail" class="form-control" id="mail" name="mail" placeholder="email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="col-sm-4 control-label">Entrer votre password</label>
+                                <div class="col-sm-8">
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="conf" class="col-sm-4 control-label">confirmation</label>
+                                <div class="col-sm-8">
+                                    <input type="password" class="form-control" id="conf" name="confPassword" placeholder="ConfPassword">
+                                </div>
+                            </div>
+                            <br>
+                            <input type="submit" class="btn btn-info col-sm-12" id ="enregistrer" value="enregistrer">
+                        </form>
+                    </div>
+                    <div class="col-md-4">
+                        Connection avec un compte existant
+                        <form method="post" action="">
+                            <br/><br/>
+                            <div class="form-group">
+                                <label for="email_authentification" class="col-sm-12 control-label">Email</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" id="email_authentification" name="email_authentification" placeholder="Authentification">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password_authentification" class="col-sm-12 control-label">Mot de Passe</label>
+                                <div class="col-sm-12">
+                                    <input type="password" class="form-control" id="compte" name="password_authentification" placeholder="Authentification">
+                                    <br>
+                                </div>
 
-                            <div class="row">
-                                <%int id = 1; %>
-                                <c:forEach items="${model.logements}" var="p">
-                                    <div class="col-md-6">
-                                        <div class="collection-item box-grey">
-                                            <div class="collection-image">
-                                                <a href="index.jsp" class="zoom-effect">
-                                                    <img src="img/appartement.jpg" alt="appartement">
-                                                </a>
-                                            </div>
-                                            <div class="collection-desc">
-                                                type  : ${p.type }<br>
-                                                A partir de ${p.prix }
-                                                Fcfa.<br />
-                                                Il comport    :<br>
-                                                ${p.nombreChambre } Chambre
-                                                ${p.nombreBain } avec Salle de Bain<br>
-                                                ${p.nombreSalon } sallon<br>
-
-                                                <a href="map.jsp?latitude=+${p.latitude }+&longitude=${p.longitude }" class="link-more"><i class="fa fa-angle-right circle"></i>Voir la localisation</a>
-                                                <%id++;%>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </c:forEach>
 
                             </div>
-                        </div>
+                            <br>
+
+                            <button type="button" class="btn btn-info col-sm-12" id ="enregistrer" >Enregistrer</button>
+                        </form>
                     </div>
                 </div>
             </header>
@@ -488,14 +527,14 @@
 
                         <div class="col-md-4">
                             <div class="title-border">Contact</div>
-                            <p>FUTURA IMMO <br>BP 221 - BP 222 - THIES - SENEGAL</p><p>Tel : (+221) 33 888 88 88</p><br>                   
+                            <p>FUTURA IMMO <br>BP 221 - BP 222 - THIES - SENEGAL</p><p>Tel : (+221) 33 888 88 88</p><br>
                             <div class="fb-page" data-href="#" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/" class="fb-xfbml-parse-ignore"><a href="">GARMY</a></blockquote></div>
                         </div>
 
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    ©2017 <a href="#">Espace FUTURA IMMO  Thies Sénégal</a>. Tous droits réservés. 
+                    ©2017 <a href="#">Espace FUTURA IMMO  Thies Sénégal</a>. Tous droits réservés.
                     Site réalisé par <a href="#" target="_blank">Garmy</a>.
                 </div>
             </footer>
