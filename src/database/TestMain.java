@@ -1,24 +1,21 @@
 package database;
 
+import java.util.ArrayList;
 import metier.Proprietaire;
 
 public class TestMain {
 
     /**
-     * @param args
+     * @param
      */
     public static void main(String[] args) {
         System.out.println("debut de la fonction");
         ProprietaireDAO impl = new ProprietaireDAO();
+        ArrayList<Proprietaire> list = new ArrayList<Proprietaire>();
         Proprietaire p = new Proprietaire();
-        p.setNumProprietaire(1);
-        p.setNom("diakhoumpa");
-        p.setPrenom("matar");
-        p.setAddress("Dakr parcelle assainie");
-        p.setMail("matar@gmail.com");
-        p.setPassword("monpassword");
-        p.setTel("77 247 93 33");
-        impl.addProprietaire(p);
+        list = impl.getProprietaire();
+
+        System.out.println(list.get(0).getNom());
 
         /* List<Logement > list = impl.listBatiments();
         for (Logement logement : list) {

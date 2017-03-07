@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import metier.Proprietaire;
 
 public class ProprietaireDAO {
@@ -30,12 +31,42 @@ public class ProprietaireDAO {
 
     }
 
-    public Proprietaire getProprietaire(int id) {
+    public ArrayList<Proprietaire> getProprietaire() {
+        ArrayList<Proprietaire> list = new ArrayList<Proprietaire>();
+        Connection connection = SingletonConnection.getConnection("thies");
+        try {
+            PreparedStatement ps = connection.prepareStatement("select * from table_proprietaire");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Proprietaire p = new Proprietaire();
+                p.setNumProprietaire(rs.getInt("numProprietaire"));
+                p.setAddress(rs.getString("address"));
+                p.setMail(rs.getString("mail"));
+                p.setNom(rs.getString("nom"));
+                p.setPassword(rs.getString("password"));
+                p.setPrenom(rs.getString("prenom"));
+                p.setTel(rs.getString("tel"));
+
+                list.add(p);
+            }
+
+            ps.close();
+            return list;
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
+    public Proprietaire getProprietaire(String mail, String password) {
         Proprietaire p = new Proprietaire();
         Connection connection = SingletonConnection.getConnection("thies");
         try {
-            PreparedStatement ps = connection.prepareStatement("select * from table_proprietairewhere table_proprietaire.nu;Proprietaire=?");
-            ps.setInt(1, id);
+            PreparedStatement ps = connection.prepareStatement("select * from table_proprietaire where table_proprietaire.mail=? and table_proprietaire.password=?");
+            ps.setString(1, mail);
+            ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             p.setNumProprietaire(rs.getInt("numProprietaire"));
             p.setNom(rs.getString("nom"));
@@ -43,8 +74,14 @@ public class ProprietaireDAO {
             p.setAddress(rs.getString("address"));
             p.setTel(rs.getString("tel"));
             p.setMail(rs.getString("mail"));
-
-            ps.close();
+            System.out.println(rs.getInt("numProprietaire"));
+            /* if (rs.getInt("numProprietaire") == null) {
+                ps.close();
+                return null;
+            } else {
+                ps.close();
+                return p;
+            }*/
             return p;
         } catch (Exception e) {
             // TODO Auto-generated catch block

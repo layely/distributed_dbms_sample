@@ -42,7 +42,6 @@ public class ControleurServlet extends HttpServlet {
 
         if (action != null) {
             if (action.equals("Enregistrer")) {
-                System.out.println("servlet.ControleurServlet.doPost()");
                 try {
                     p.setNom(request.getParameter("nom"));
                     System.out.println(p.getMail());
@@ -58,12 +57,30 @@ public class ControleurServlet extends HttpServlet {
                 } catch (Exception e) {
                     e.getMessage();
                 }
+                request.getRequestDispatcher("../index.jsp").forward(request,
+                        response);
+            }
+            if (action.equals("Connection")) {
+                try {
+                    p.setNom(request.getParameter("nom"));
+                    System.out.println(p.getMail());
+                    p.setPrenom(request.getParameter("prenom"));
+                    p.setAddress(request.getParameter("address"));
+                    p.setMail(request.getParameter("mail"));
+                    p.setTel(request.getParameter("telephone"));
+                    p.setPassword(request.getParameter("password"));
+                    p.setNumProprietaire(12);
 
+                    implProprietaire.addProprietaire(p);
+
+                } catch (Exception e) {
+                    e.getMessage();
+                }
+                request.getRequestDispatcher("../index.jsp").forward(request,
+                        response);
             }
 
         }
-        request.getRequestDispatcher("../index.jsp").forward(request,
-                response);
 
     }
 }

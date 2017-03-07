@@ -51,13 +51,43 @@ public class MaisonDAO {
         try {
             PreparedStatement ps = conn.prepareStatement("insert into table_logement values(?,?,?,?,?,?,?)");
             // on ecrire une requette d'insertion sur tous les table.
-            /*ps.setString(1, maison.getType());
-			ps.setInt(2, maison.getPrix());
-			ps.setInt(3, maison.getNombreChambre());
-			ps.setInt(4, maison.getNombreBain());
-			ps.setInt(5, maison.getNombreSalon());
-			ps.setString(6, maison.getLatitude());
-			ps.setString(7, maison.getLongitude());*/
+            ps.setInt(1, maison.getNumLogement());
+            ps.setString(2, maison.getDescription());
+            ps.setInt(3, maison.getPrix());
+            ps.setInt(4, maison.getNumVille());
+            ps.setString(5, maison.getAddress());
+            ps.setInt(6, maison.getNumProprietaire());
+            ps.setDouble(7, maison.getSurface());
+            ps.executeUpdate();
+            ps.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            PreparedStatement ps = conn.prepareStatement("insert into table_multiPiece values(?,?,?,?,?)");
+            // on ecrire une requette d'insertion sur tous les table.
+
+            ps.setInt(1, maison.getNumLogement());
+            ps.setInt(2, maison.getNombreBalcon());
+            ps.setInt(3, maison.getNombreChambre());
+            ps.setInt(4, maison.getNombreToilette());
+            ps.setInt(5, maison.getNombreCuisine());
+
+            ps.executeUpdate();
+            ps.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            PreparedStatement ps = conn.prepareStatement("insert into table_maison values(?,?,?,?)");
+            // on ecrire une requette d'insertion sur tous les table.
+            ps.setInt(1, maison.getNumLogement());
+            ps.setInt(2, maison.getNombreEtage());
+            ps.setInt(3, maison.getNombreParking());
+            ps.setString(4, maison.getDescription());
+
             ps.executeUpdate();
             ps.close();
         } catch (SQLException e) {

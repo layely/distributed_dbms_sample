@@ -437,55 +437,55 @@
                     <div class="col-md-8">
                         <form class="form-horizontal" method="post" action="ajout.php?action=Enregistrer">
                             <br><br>
-                            <div class="form-group">
+                            <div class="form-group divnom">
                                 <label for="nom" class="col-sm-4 control-label">Entrer votre Nom</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" id="nom" name="nom" placeholder="Name">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group divprenom">
                                 <label for="prenom" class="col-sm-4 control-label">Entrer votre Prenom</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" id="prenom" name="prenom" placeholder="fist name">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group divaddress">
                                 <label for="address" class="col-sm-4 control-label">Adresse</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" id="address" name="address" placeholder="address">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group divtel">
                                 <label for="tel" class="col-sm-4 control-label">Entrer votre numero de telephone</label>
                                 <div class="col-sm-8">
                                     <input type="numb" class="form-control" id="tel" name="telephone" placeholder="telephone">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group divmail">
                                 <label for="mail" class="col-sm-4 control-label">Entrer votre Address email</label>
                                 <div class="col-sm-8">
                                     <input type="mail" class="form-control" id="mail" name="mail" placeholder="email">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group divpassword">
                                 <label for="password" class="col-sm-4 control-label">Entrer votre password</label>
                                 <div class="col-sm-8">
                                     <input type="password" class="form-control" id="password" name="password" placeholder="password">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group divconf">
                                 <label for="conf" class="col-sm-4 control-label">confirmation</label>
                                 <div class="col-sm-8">
                                     <input type="password" class="form-control" id="conf" name="confPassword" placeholder="ConfPassword">
                                 </div>
                             </div>
                             <br>
-                            <input type="submit" class="btn btn-info col-sm-12" id ="enregistrer" value="enregistrer">
+                            <input type="submit" class="btn btn-info col-sm-12" id ="enregistrer" value="Enregistrer">
                         </form>
                     </div>
                     <div class="col-md-4">
                         Connection avec un compte existant
-                        <form method="post" action="">
+                        <form method="post" action="ajout.php?action=Connection">
                             <br/><br/>
                             <div class="form-group">
                                 <label for="email_authentification" class="col-sm-12 control-label">Email</label>
@@ -504,7 +504,7 @@
                             </div>
                             <br>
 
-                            <button type="button" class="btn btn-info col-sm-12" id ="enregistrer" >Enregistrer</button>
+                            <input type="button" class="btn btn-info col-sm-12" id ="connection "  value="Connetion">
                         </form>
                     </div>
                 </div>
@@ -543,7 +543,7 @@
         <script   src="https://code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWiJmMgeXIvpQzFSOBfjsgnXfykL-vvBk&signed_in=true&callback=initMap"
         async defer></script>
-        <script type="text/javascript" src="bxslider.js"></script>
+        <script type="text/javascript" src="../js/connection.js"></script>
 
     </body>
 </html>
