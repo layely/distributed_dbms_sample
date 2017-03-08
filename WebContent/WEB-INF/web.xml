@@ -3,12 +3,17 @@
     <display-name>distributed_dbms_sample</display-name>
     <servlet>
         <servlet-name>cs</servlet-name>
-        <servlet-class>servlet.ControleurServlet</servlet-class>
+        <servlet-class>servlet.EnregistrementProprietaireServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Afficheservlet</servlet-name>
         <servlet-class>servlet.Afficheservlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EnregistrerLogementServlet</servlet-name>
+        <servlet-class>servlet.EnregistrerLogementServlet</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>cs</servlet-name>
         <url-pattern>/controleur</url-pattern>
@@ -25,4 +30,10 @@
         <servlet-name>Afficheservlet</servlet-name>
         <url-pattern>*.gar</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>EnregistrerLogementServlet</servlet-name>
+        <url-pattern>/EnregistrerLogementServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

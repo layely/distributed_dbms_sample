@@ -431,7 +431,7 @@
                             <div class="title-border">Ajouter logement</div>
 
                             <div class='row'>
-                                <form class="form-horizontal" method="post" action="logement.php?action=ajoutLogement">
+                                <form class="form-horizontal" method="post" action="../EnregistrerLogementServlet">
                                     <div class="form-group">
                                         <label for="list" class="col-sm-4 control-label">choisie le type de logement</label>
                                         <div class="col-sm-8">
