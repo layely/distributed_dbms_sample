@@ -410,7 +410,7 @@
                 <div class="header-menu">
                     <button class="mobile-menu"><i class="fa fa-bars fa-2x"></i></button>
 
-                    <!-- <ul class="clearfix">
+                    <ul class="clearfix">
                         <li class="active"><a href="index.jsp">Accueil</a>
                         </li>
                         <li><a href="jsp/presentation.html">Présentation</a>
@@ -426,7 +426,7 @@
                         <li><a href="jsp/contact.html">Contact</a>
                         </li>
                         <li><tt/><a href="jsp/connection.jsp"><b class='glyphicon glyphicon-log-in'></b>       connection</a></li>
-                    </ul>-->
+                    </ul>
 
 
 
@@ -436,14 +436,43 @@
 
 
                 </div>
-                <br>
-                <br>
-                <br>
-                <a href="jsp/AccueilThies.jsp" class="btn btn-info col-sm-6"> thies</a>
-                <br>
-                <br>
-                <a href="jsp/AccueilDakar.jsp" class="btn btn-info col-sm-6"> dakar</a>
-                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-collection box-white padding-all">
+                            <div class="title-border">Nos projets</div>
+
+                            <div class="row">
+                                <%ArrayList<Maison> list = new MaisonDAO().listMaisonT();%>
+                                <%for (int i = 0; i < list.size(); i++) {%>
+
+
+                                <div class="col-md-6">
+                                    <div class="collection-item box-grey">
+                                        <div class="collection-image">
+                                            <a href="index.jsp" class="zoom-effect">
+                                                <img src="../img/appartement.jpg" alt="appartement">
+                                            </a>
+                                        </div>
+                                        <div class="collection-desc">
+                                            type  : Maison<br>
+                                            A partir de <%=list.get(i).getPrix()%>
+                                            Fcfa.<br />
+                                            Il comport    :<br>
+                                            <%=list.get(i).getNombreChambre()%> Chambre
+                                            <%=list.get(i).getNombreToilette()%> avec Salle de Bain<br>
+                                            <%=list.get(i).getNombreEtage()%> sallon<br>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <%}%>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </header>
 
             <!-- Footer -->

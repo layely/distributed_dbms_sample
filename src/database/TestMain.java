@@ -1,6 +1,5 @@
 package database;
 
-import java.util.ArrayList;
 import metier.Maison;
 
 public class TestMain {
@@ -16,18 +15,17 @@ public class TestMain {
         m.setDateConstruction("22/12/1993");
         m.setDescription("la description");
         m.setNombreBalcon(1);
-        m.setNombreChambre(1);
+        m.setNombreChambre(16);
         m.setNombreCuisine(0);
         m.setNombreEtage(14);
         m.setNombreParking(2);
         m.setNombreToilette(4);
-        m.setNumLogement(1);
+        m.setNumLogement(4);
         m.setNumProprietaire(1);
         m.setNumVille(1);
         m.setPrix(150000);
         m.setSurface(451);
-        ArrayList<Maison> list = impl.listMaisonT();
-        System.out.println(list.get(0).getAddress());
+        impl.addMaison(m, "thies");
         /*IdLogement id = new IdLogement();
         System.out.println(id.getId());*/
 
