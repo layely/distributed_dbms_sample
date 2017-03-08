@@ -2,7 +2,6 @@ package servlet;
 
 import database.AppartementDAO;
 import database.ChambreDAO;
-import database.IdLogement;
 import database.MaisonDAO;
 import database.ProprietaireDAO;
 import database.SingletonConnection;
@@ -49,6 +48,7 @@ public class ControleurServlet extends HttpServlet {
         String action = request.getParameter("action");
         request.setAttribute("model", p);
         int lastIdProprietaire = SingletonConnection.getIntValue(SingletonConnection.KEY_LAST_ID_PROPRIETAIRE);
+        int lastIdLogement = SingletonConnection.getIntValue(SingletonConnection.KEY_LAST_ID_LOGEMENT);
         if (action != null) {
             if (action.equals("Enregistrer")) {
                 try {
@@ -63,7 +63,7 @@ public class ControleurServlet extends HttpServlet {
                     implProprietaire.addProprietaire("dakar", p);
                     implProprietaire.addProprietaire("thies", p);
 
-                    SingletonConnection.setValue(String.valueOf(lastIdProprietaire));
+                    SingletonConnection.setValue(String.valueOf(lastIdProprietaire + 1));
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -112,7 +112,7 @@ public class ControleurServlet extends HttpServlet {
                         m.setNombreEtage(Integer.parseInt(request.getParameter("nombreEtage")));
                         m.setNombreParking(Integer.parseInt(request.getParameter("nombreParking")));
                         m.setNombreToilette(Integer.parseInt(request.getParameter("toilette")));
-                        m.setNumLogement(new IdLogement().getId());
+                        m.setNumLogement(lastIdLogement + 1);
                         m.setNumProprietaire(1);
                         m.setPrix(Integer.parseInt(request.getParameter("prix")));
                         m.setSurface(Integer.parseInt(request.getParameter("surface")));
@@ -135,7 +135,7 @@ public class ControleurServlet extends HttpServlet {
                         a.setNombreCuisine(Integer.parseInt(request.getParameter("cuisine")));
                         a.setEtage(Integer.parseInt(request.getParameter("numeroEtage")));
                         a.setNombreToilette(Integer.parseInt(request.getParameter("toilette")));
-                        a.setNumLogement(new IdLogement().getId());
+                        a.setNumLogement(lastIdLogement + 1);
                         a.setNumProprietaire(1);
                         a.setPrix(Integer.parseInt(request.getParameter("prix")));
                         a.setSurface(Integer.parseInt(request.getParameter("surface")));
@@ -155,7 +155,7 @@ public class ControleurServlet extends HttpServlet {
                         c.setNombreBalcon(Integer.parseInt(request.getParameter("balcon")));
 
                         c.setNombreToilette(Integer.parseInt(request.getParameter("toilette")));
-                        c.setNumLogement(new IdLogement().getId());
+                        c.setNumLogement(lastIdLogement + 1);
                         c.setNumProprietaire(1);
                         c.setPrix(Integer.parseInt(request.getParameter("prix")));
                         c.setSurface(Integer.parseInt(request.getParameter("surface")));
