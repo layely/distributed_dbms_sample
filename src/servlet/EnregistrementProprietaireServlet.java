@@ -6,7 +6,6 @@ import database.MaisonDAO;
 import database.ProprietaireDAO;
 import database.SingletonConnection;
 import java.io.IOException;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -57,28 +56,26 @@ public class EnregistrementProprietaireServlet extends HttpServlet {
                     implProprietaire.addProprietaire("dakar", p);
                     implProprietaire.addProprietaire("thies", p);
 
-                    SingletonConnection.setValue(String.valueOf(lastIdProprietaire + 1));
+                    SingletonConnection.setValue(SingletonConnection.KEY_LAST_ID_PROPRIETAIRE, String.valueOf(lastIdProprietaire + 1));
 
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                request.getRequestDispatcher("ajout.jsp").forward(request,
+                request.getRequestDispatcher("jsp/ajout.jsp").forward(request,
                         response);
             }
             if (action.equals("Connection")) {
                 try {
-                    int nombre = 0;
-                    ArrayList<Proprietaire> list = new ProprietaireDAO().getProprietaire();
-                    for (int i = 0; i < list.size(); i++) {
-                        if (request.getParameter("email_authentification") == list.get(0).getMail() && request.getParameter("password_authentification") == list.get(0).getPassword()) {
-                            nombre = 1;
-                        }
-                    }
-                    if (nombre == 1) {
-                        request.getRequestDispatcher("ajout.jsp").forward(request,
+                    String email = request.getParameter("email_authentification");
+                    String password = request.getParameter("password_authentification");
+
+                    Proprietaire prop = implProprietaire.getProprietaire(email, password);
+
+                    if (prop != null) {
+                        request.getRequestDispatcher("jsp/ajout.jsp").forward(request,
                                 response);
                     } else {
-                        request.getRequestDispatcher("connection.jsp").forward(request,
+                        request.getRequestDispatcher("jsp/connection.jsp").forward(request,
                                 response);
                     }
 

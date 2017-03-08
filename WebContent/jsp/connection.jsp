@@ -426,16 +426,11 @@
                         <li class="active"><tt/><a><b class='glyphicon glyphicon-log-in'></b>       connection</a></li>
                     </ul>
 
-
-
-
-
-
-
                 </div>
                 <div class="row">
                     <div class="col-md-8">
-                        <form class="form-horizontal" method="post" action="ajout.php?action=Enregistrer">
+
+                        <form class="form-horizontal" method="post" action="../EnregistrementProprietaireServlet?action=Enregistrer">
                             <br><br>
                             <div class="form-group divnom">
                                 <label for="nom" class="col-sm-4 control-label">Entrer votre Nom</label>
@@ -485,7 +480,7 @@
                     </div>
                     <div class="col-md-4">
                         Connection avec un compte existant
-                        <form class="form-horizontal" method="post" action="ajout.php?action=Connection">
+                        <form class="form-horizontal" method="post" action="../EnregistrementProprietaireServlet?action=Connection">
                             <br/><br/>
                             <div class="form-group">
                                 <label for="email_authentification" class="col-sm-12 control-label">Email</label>

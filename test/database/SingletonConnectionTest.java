@@ -5,8 +5,6 @@
  */
 package database;
 
-import java.sql.Connection;
-
 /**
  *
  * @author layely
@@ -14,6 +12,11 @@ import java.sql.Connection;
 public class SingletonConnectionTest {
 
     public static void main(String[] args) {
-        Connection connectionToDakar = SingletonConnection.getConnection("thies");
+        int lastValue = SingletonConnection.getIntValue(SingletonConnection.KEY_LAST_ID_LOGEMENT);
+        System.out.println(lastValue);
+        System.out.println("About to increment the value");
+        SingletonConnection.setValue(SingletonConnection.KEY_LAST_ID_LOGEMENT, lastValue + 1 + "");
+        lastValue = SingletonConnection.getIntValue(SingletonConnection.KEY_LAST_ID_LOGEMENT);
+        System.out.println(lastValue);
     }
 }

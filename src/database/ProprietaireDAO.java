@@ -86,28 +86,26 @@ public class ProprietaireDAO {
             PreparedStatement ps = connection.prepareStatement("select * from table_proprietaire where table_proprietaire.mail=? and table_proprietaire.password=?");
             ps.setString(1, mail);
             ps.setString(2, password);
+
             ResultSet rs = ps.executeQuery();
-            p.setNumProprietaire(rs.getInt("numProprietaire"));
-            p.setNom(rs.getString("nom"));
-            p.setPrenom(rs.getString("prenom"));
-            p.setAddress(rs.getString("address"));
-            p.setTel(rs.getString("tel"));
-            p.setMail(rs.getString("mail"));
-            System.out.println(rs.getInt("numProprietaire"));
-            /* if (rs.getInt("numProprietaire") == null) {
-                ps.close();
-                return null;
-            } else {
-                ps.close();
+
+            if (rs.next()) {
+                p.setNumProprietaire(rs.getInt("numProprietaire"));
+                p.setNom(rs.getString("nom"));
+                p.setPrenom(rs.getString("prenom"));
+                p.setAddress(rs.getString("address"));
+                p.setTel(rs.getString("tel"));
+                p.setMail(rs.getString("mail"));
+                p.setPassword(rs.getString("password"));
+//            System.out.println(rs.getInt("numProprietaire"));
+
                 return p;
-            }*/
-            return p;
+            }
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-            return null;
         }
-
+        return null;
     }
 
 }

@@ -142,10 +142,10 @@ public class SingletonConnection {
         return -1;
     }
 
-    public static void setValue(String newValue) {
+    public static void setValue(String key, String newValue) {
         Connection conn = SingletonConnection.getConnectionFromFragmentCentrale();
         try {
-            PreparedStatement ps = conn.prepareStatement("update  parametres set valeur=?");
+            PreparedStatement ps = conn.prepareStatement("update  parametres set valeur=? where cle = '" + key + "'");
             ps.setString(1, newValue);
             ps.executeUpdate();
             ps.close();

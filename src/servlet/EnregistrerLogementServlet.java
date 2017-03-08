@@ -43,7 +43,8 @@ public class EnregistrerLogementServlet extends HttpServlet {
         Appartement a;
         Maison m;
         int lastIdLogement = SingletonConnection.getIntValue(SingletonConnection.KEY_LAST_ID_LOGEMENT);
-        response.getOutputStream().println("IN the doPost");
+//        response.getOutputStream().println("IN the doPost");
+        log("in the doPost of EnregLogement ...... ");
         try {
             if (request.getParameter("type").equals("maison")) {
                 m = new Maison();
@@ -114,6 +115,8 @@ public class EnregistrerLogementServlet extends HttpServlet {
 //                        response);
 
             }
+
+            SingletonConnection.setValue(SingletonConnection.KEY_LAST_ID_LOGEMENT, lastIdLogement + 1 + "");
             request.getRequestDispatcher("/jsp/ajout.jsp").forward(request,
                     response);
 
