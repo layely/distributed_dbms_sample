@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 08, 2017 at 02:23 PM
+-- Generation Time: Mar 08, 2017 at 02:21 PM
 -- Server version: 5.7.17-0ubuntu0.16.04.1
 -- PHP Version: 7.0.15-0ubuntu0.16.04.4
 
@@ -43,25 +43,6 @@ INSERT INTO `ConnectionInfo` (`site`, `ip_addr`, `db_name`, `port`, `username`, 
 ('DAKAR', 'localhost', 'locationdakar', 3306, 'gl', 'gl'),
 ('THIES', 'localhost', 'locationthies', 3306, 'gl', 'gl');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `parametres`
---
-
-CREATE TABLE `parametres` (
-  `cle` varchar(50) NOT NULL,
-  `valeur` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `parametres`
---
-
-INSERT INTO `parametres` (`cle`, `valeur`) VALUES
-('last_id_logement', '0'),
-('last_id_proprietaire', '0');
-
 --
 -- Indexes for dumped tables
 --
@@ -71,12 +52,6 @@ INSERT INTO `parametres` (`cle`, `valeur`) VALUES
 --
 ALTER TABLE `ConnectionInfo`
   ADD PRIMARY KEY (`site`);
-
---
--- Indexes for table `parametres`
---
-ALTER TABLE `parametres`
-  ADD PRIMARY KEY (`cle`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
