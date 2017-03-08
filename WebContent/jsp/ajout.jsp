@@ -431,13 +431,13 @@
                             <div class="title-border">Ajouter logement</div>
 
                             <div class='row'>
-                                <form class="form-horizontal" method="post" action="ajout.php?action=Enregistrer">
+                                <form class="form-horizontal" method="post" action="logement.php?action=ajoutLogement">
                                     <div class="form-group">
                                         <label for="list" class="col-sm-4 control-label">choisie le type de logement</label>
                                         <div class="col-sm-8">
                                             <select class="form-control" id='list' name="type" >
                                                 <option selected='selected' value="appartement">Appartement</option>
-                                                <option value="batiment">batiment</option>
+                                                <option value="maison">maison</option>
                                                 <option value="chambre">Chambre</option>
                                             </select>
                                         </div>
@@ -483,48 +483,52 @@
                                                 <input type="text" class="form-control" id="cuisine" name="cuisine" placeholder="nombre de cuisine">
                                             </div>
                                         </div>
-                                        <div id='divchambre'>
-                                            <div class="form-group">
-                                                <label for="balcon" class="col-sm-4 control-label">entrer le nombre de Balcon</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="balcon" name="balcon" placeholder="nombre de balcon">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="toilette" class="col-sm-4 control-label">entrer le nombre de Toilette</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="toilette" name="toilette" placeholder="nombre de toilette">
-                                                </div>
+                                    </div>
+                                    <div id='divchambre'>
+                                        <div class="form-group">
+                                            <label for="balcon" class="col-sm-4 control-label">entrer le nombre de Balcon</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="balcon" name="balcon" placeholder="nombre de balcon">
                                             </div>
                                         </div>
 
-                                        <div id='divmaison'>
-                                            <div class="form-group">
-                                                <label for="nombreEtage" class="col-sm-4 control-label">entrer le nombre de etage de la maision</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="nombreEtage" name="nombreEtage" placeholder="nombre d'etage">
-                                                </div>
+                                        <div class="form-group">
+                                            <label for="toilette" class="col-sm-4 control-label">entrer le nombre de Toilette</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="toilette" name="toilette" placeholder="nombre de toilette">
                                             </div>
-                                            <div class="form-group">
-                                                <label for="nombreParking" class="col-sm-4 control-label">entrer le nombre de parking de la maision</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="nombreParking" name="nombreParking" placeholder="nombre de parking">
-                                                </div>
+                                        </div>
+                                    </div>
+
+                                    <div id='divmaison'>
+                                        <div class="form-group">
+                                            <label for="nombreEtage" class="col-sm-4 control-label">entrer le nombre de etage de la maision</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="nombreEtage" name="nombreEtage" placeholder="nombre d'etage">
                                             </div>
-                                            <div class="form-group">
-                                                <label for="dateConstruction" class="col-sm-4 control-label">entrer la date de construction de la maison</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="dateConstruction" name="dateConstruction" placeholder="dd/mm/aaaa">
-                                                </div>
-                                            </div></div>
-                                        <div id='divappartement'>
-                                            <div class="form-group">
-                                                <label for="numeroEtage" class="col-sm-4 control-label">entrer le numero de l'etage de l'appartement</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="numeroEtage" name="numeroEtage" placeholder="numeroEtage">
-                                                </div>
-                                            </div></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nombreParking" class="col-sm-4 control-label">entrer le nombre de parking de la maision</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="nombreParking" name="nombreParking" placeholder="nombre de parking">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="dateConstruction" class="col-sm-4 control-label">entrer la date de construction de la maison</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="dateConstruction" name="dateConstruction" placeholder="dd/mm/aaaa">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id='divappartement'>
+                                        <div class="form-group">
+                                            <label for="numeroEtage" class="col-sm-4 control-label">entrer le numero de l'etage de l'appartement</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="numeroEtage" name="numeroEtage" placeholder="numeroEtage">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type ='submit' value="enregistrer">
                                 </form>
 
                             </div>
@@ -569,12 +573,7 @@
         async defer></script>
         <script type="text/javascript" src="../js/ajout.js"></script>
         <script type="text/javascript" src="map.js"></script>
-        <script type="text/javascript" >
-            $("#valider").click(function () {
-                document.location = 'ajout.php?action=Enregistrer&type=' + $('#type').val() + '&prix=' + $('#prix').val() + '&latitude=' + $('#latitude').val() +
-                        '&longitude=' + $('#longitude').val() + '&chambre=' + $('#chambre').val() + '&bain=' + $('#bain').val() + '&salon=' + $('#salon').val();
-            });
-        </script>
+
 
     </body>
 </html>

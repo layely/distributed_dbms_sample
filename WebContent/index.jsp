@@ -397,7 +397,7 @@
 
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head> 
+    </head>
     <body>
         <div class='container'>
             <!-- Header -->
@@ -409,7 +409,7 @@
                     <button class="mobile-menu"><i class="fa fa-bars fa-2x"></i></button>
 
                     <ul class="clearfix">
-                        <li class="active"><a href="index.php?action=tout">Accueil</a>
+                        <li class="active"><a href="index.php?action=maison">Accueil</a>
                         </li>
                         <li><a href="presentation.html">Présentation</a>
                         </li>
@@ -423,7 +423,7 @@
                         </li>
                         <li><a href="jsp/contact.html">Contact</a>
                         </li>
-                        <li><tt/><a><b class='glyphicon glyphicon-log-in'></b>       connection</a></li>
+                        <li><tt/><a href="jsp/connection.jsp"><b class='glyphicon glyphicon-log-in'></b>       connection</a></li>
                     </ul>
 
 
@@ -440,8 +440,8 @@
                             <div class="title-border">Nos projets</div>
 
                             <div class="row">
-                                <%int id = 1; %>
-                                <c:forEach items="${model.logements}" var="p">
+                                <%int id = 1;%>
+                                <c:forEach items="${model.maisons}" var="p">
                                     <div class="col-md-6">
                                         <div class="collection-item box-grey">
                                             <div class="collection-image">
@@ -450,7 +450,7 @@
                                                 </a>
                                             </div>
                                             <div class="collection-desc">
-                                                type  : ${p.type }<br>
+                                                type  : ${p.address }<br>
                                                 A partir de ${p.prix }
                                                 Fcfa.<br />
                                                 Il comport    :<br>
@@ -458,8 +458,7 @@
                                                 ${p.nombreBain } avec Salle de Bain<br>
                                                 ${p.nombreSalon } sallon<br>
 
-                                                <a href="map.jsp?latitude=+${p.latitude }+&longitude=${p.longitude }" class="link-more"><i class="fa fa-angle-right circle"></i>Voir la localisation</a>
-                                                <%id++;%>
+
                                             </div>
                                         </div>
                                     </div>
@@ -488,14 +487,14 @@
 
                         <div class="col-md-4">
                             <div class="title-border">Contact</div>
-                            <p>FUTURA IMMO <br>BP 221 - BP 222 - THIES - SENEGAL</p><p>Tel : (+221) 33 888 88 88</p><br>                   
+                            <p>FUTURA IMMO <br>BP 221 - BP 222 - THIES - SENEGAL</p><p>Tel : (+221) 33 888 88 88</p><br>
                             <div class="fb-page" data-href="#" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/" class="fb-xfbml-parse-ignore"><a href="">GARMY</a></blockquote></div>
                         </div>
 
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    ©2017 <a href="#">Espace FUTURA IMMO  Thies Sénégal</a>. Tous droits réservés. 
+                    ©2017 <a href="#">Espace FUTURA IMMO  Thies Sénégal</a>. Tous droits réservés.
                     Site réalisé par <a href="#" target="_blank">Garmy</a>.
                 </div>
             </footer>

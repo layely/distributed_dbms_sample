@@ -1,55 +1,48 @@
 package servlet;
 
-
 import java.util.ArrayList;
-import java.util.List;
-
-import metier.Logement;
+import metier.Appartement;
+import metier.Chambre;
+import metier.Maison;
+import metier.Proprietaire;
 
 public class LogementModel {
-	private List<Logement> logements=new ArrayList<Logement>();
-	private String motCle="";
-	private Logement logement=new Logement();
-	String errors="";
-	String mode="ajout";
-	public List<Logement> getLogements() {
-		return logements;
-	}
 
-	public void setLogements(List<Logement> logements) {
-		this.logements = logements;
-	}
+    private ArrayList<Maison> maisons = new ArrayList<Maison>();
+    private ArrayList<Appartement> appartements = new ArrayList<Appartement>();
+    private ArrayList<Chambre> chambres = new ArrayList<Chambre>();
+    private ArrayList<Proprietaire> proprietaires = new ArrayList<Proprietaire>();
 
-	public String getMotCle() {
-		return motCle;
-	}
+    public ArrayList<Maison> getMaisons() {
+        return maisons;
+    }
 
-	public void setMotCle(String motCle) {
-		this.motCle = motCle;
-	}
+    public void setMaisons(ArrayList<Maison> maisons) {
+        this.maisons = maisons;
+    }
 
-	public Logement getLogement() {
-		return logement;
-	}
+    public ArrayList<Appartement> getAppartements() {
+        return appartements;
+    }
 
-	public void setLogement(Logement logement) {
-		this.logement = logement;
-	}
+    public void setAppartements(ArrayList<Appartement> appartements) {
+        this.appartements = appartements;
+    }
 
-	public String getErrors() {
-		return errors;
-	}
+    public ArrayList<Chambre> getChambres() {
+        return chambres;
+    }
 
-	public void setErrors(String errors) {
-		this.errors = errors;
-	}
+    public void setChambres(ArrayList<Chambre> chambres) {
+        this.chambres = chambres;
+    }
 
-	public String getMode() {
-		return mode;
-	}
+    public ArrayList<Proprietaire> getProprietaires() {
+        return proprietaires;
+    }
 
-	public void setMode(String mode) {
-		this.mode = mode;
-	}
-	
+    public void setProprietaires(ArrayList<Proprietaire> proprietaires) {
+        this.proprietaires = proprietaires;
+    }
+
 }

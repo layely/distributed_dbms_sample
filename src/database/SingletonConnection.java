@@ -57,8 +57,7 @@ public class SingletonConnection {
             String username, String password) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            /*Connection connection = DriverManager.getConnection("jdbc:mysql://" + ipAddr
-                    + ":3306/" + dbname, username, password);*/
+
             Connection connection = DriverManager.getConnection(
                     "jdbc:mysql://" + ipAddr + ":" + port + "/" + dbname, username, password);
             return connection;
@@ -67,7 +66,6 @@ public class SingletonConnection {
             e.printStackTrace();
             return null;
         }
-
     }
 
     /*

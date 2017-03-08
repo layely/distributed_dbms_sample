@@ -485,7 +485,7 @@
                     </div>
                     <div class="col-md-4">
                         Connection avec un compte existant
-                        <form method="post" action="ajout.php?action=Connection">
+                        <form class="form-horizontal" method="post" action="ajout.php?action=Connection">
                             <br/><br/>
                             <div class="form-group">
                                 <label for="email_authentification" class="col-sm-12 control-label">Email</label>
@@ -504,7 +504,7 @@
                             </div>
                             <br>
 
-                            <input type="button" class="btn btn-info col-sm-12" id ="connection "  value="Connetion">
+                            <input type="submit" class="btn btn-info col-sm-12" id ="connection "  value="Connection">
                         </form>
                     </div>
                 </div>
@@ -543,7 +543,7 @@
         <script   src="https://code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWiJmMgeXIvpQzFSOBfjsgnXfykL-vvBk&signed_in=true&callback=initMap"
         async defer></script>
-        <script type="text/javascript" src="../js/connection.js"></script>
+        <script type="text/javascript" src="/js/connection.js"></script>
 
     </body>
 </html>

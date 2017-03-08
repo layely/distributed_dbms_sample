@@ -12,7 +12,7 @@ public class MaisonDAO {
     public static int logement_id = 0;
 
     public void deleteMaison(int id) {
-        Connection conn = SingletonConnection.getConnection("thies");
+        Connection conn = SingletonConnection.getConnection("dakar");
         try {
             PreparedStatement ps = conn.prepareStatement("delete from table_maison where id=?");
             ps.setInt(1, id);
@@ -45,8 +45,8 @@ public class MaisonDAO {
 
     }
 
-    public void addMaison(Maison maison) {
-        Connection conn = SingletonConnection.getConnection("thies");
+    public void addMaison(Maison maison, String ville) {
+        Connection conn = SingletonConnection.getConnection(ville);
         System.out.println("dans addMaison");
         try {
             PreparedStatement ps = conn.prepareStatement("insert into table_logement values(?,?,?,?,?,?,?)");
@@ -128,18 +128,48 @@ public class MaisonDAO {
 
     }
 
-    public ArrayList<Maison> listMaison() {
+    public ArrayList<Maison> listMaisonD() {
         ArrayList<Maison> list = new ArrayList<Maison>();
-        Connection connection = SingletonConnection.getConnection("thies");
+        Connection connection = SingletonConnection.getConnection("dakar");
         try {
-            PreparedStatement ps = connection.prepareStatement("select * from table_logement,table_maison where table_logement.numLogement=table_maison.numMaison");
+            PreparedStatement ps = connection.prepareStatement("select * from table_logement,table_maison,table_multiPiece where table_logement.numLogement=table_maison.numMaison and  table_logement.numLogement=table_multiPiece.numMultiPiece");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Maison maison = new Maison();
                 maison.setNumLogement(rs.getInt("numLogement"));
                 maison.setAddress(rs.getString("address"));
                 maison.setDescription(rs.getString("description"));
-                maison.setNombreBalcon(rs.getInt("nombrebalcon"));
+                maison.setNombreBalcon(rs.getInt("nombreBalcon"));
+                maison.setNombreChambre(rs.getInt("nombreChambre"));
+                maison.setNombreCuisine(rs.getInt("nombreCuisine"));
+                maison.setNombreToilette(rs.getInt("nombreToilette"));
+                maison.setNumProprietaire(rs.getInt("numProprietaire"));
+                maison.setNumVille(rs.getInt("numVille"));
+                maison.setPrix(rs.getInt("prix"));
+                maison.setSurface(rs.getDouble("surface"));
+                list.add(maison);
+            }
+            ps.close();
+            return list;
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public ArrayList<Maison> listMaisonT() {
+        ArrayList<Maison> list = new ArrayList<Maison>();
+        Connection connection = SingletonConnection.getConnection("thies");
+        try {
+            PreparedStatement ps = connection.prepareStatement("select * from table_logement,table_maison,table_multiPiece where table_logement.numLogement=table_maison.numMaison and  table_logement.numLogement=table_multiPiece.numMultiPiece");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Maison maison = new Maison();
+                maison.setNumLogement(rs.getInt("numLogement"));
+                maison.setAddress(rs.getString("address"));
+                maison.setDescription(rs.getString("description"));
+                maison.setNombreBalcon(rs.getInt("nombreBalcon"));
                 maison.setNombreChambre(rs.getInt("nombreChambre"));
                 maison.setNombreCuisine(rs.getInt("nombreCuisine"));
                 maison.setNombreToilette(rs.getInt("nombreToilette"));
