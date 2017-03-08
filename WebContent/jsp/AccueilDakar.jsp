@@ -456,7 +456,7 @@
                                     <div class="collection-item box-grey">
                                         <div class="collection-image">
                                             <a href="index.jsp" class="zoom-effect">
-                                                <img src="img/appartement.jpg" alt="appartement">
+                                                <img src="img/maison.jpg" alt="maison">
                                             </a>
                                         </div>
                                         <div class="collection-desc">
@@ -506,7 +506,7 @@
                                     <div class="collection-item box-grey">
                                         <div class="collection-image">
                                             <a href="index.jsp" class="zoom-effect">
-                                                <img src="../img/appartement.jpg" alt="appartement">
+                                                <img src="../img/chambre.jpg" alt="chambre">
                                             </a>
                                         </div>
                                         <div class="collection-desc">
