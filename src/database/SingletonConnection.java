@@ -11,7 +11,7 @@ public class SingletonConnection {
 
     //Information de la connexion au fragment centrale.
     private static final String CENTRALE_IP_ADDR = "localhost";
-    private static final String CENTRALE_DB_NAME = "locationThies";
+    private static final String CENTRALE_DB_NAME = "central";
     private static final String CENTRALE_PORT = "3306";
     private static final String CENTRALE_USERNAME = "gl";
     private static final String CENTRALE_PASSWORD = "gl";
@@ -46,7 +46,7 @@ public class SingletonConnection {
     }
 
     private static Connection getConnectionFromFragmentCentrale() {
-        if (connectionCentrale != null) {
+        if (connectionCentrale == null) {
             connectionCentrale = getConnectionUsing(CENTRALE_IP_ADDR, CENTRALE_DB_NAME, CENTRALE_PORT, CENTRALE_USERNAME, CENTRALE_PASSWORD);
         }
 
@@ -60,7 +60,7 @@ public class SingletonConnection {
             /*Connection connection = DriverManager.getConnection("jdbc:mysql://" + ipAddr
                     + ":3306/" + dbname, username, password);*/
             Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/locationthies", "root", "456153");
+                    "jdbc:mysql://" + ipAddr + ":" + port + "/" + dbname, username, password);
             return connection;
         } catch (Exception e) {
             // TODO Auto-generated catch block
