@@ -1,3 +1,5 @@
+<%@page import="database.MaisonDAO"%>
+<%@page import="metier.Maison"%>
 <%@page import="metier.Logement"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.DriverManager"%>
@@ -440,31 +442,58 @@
                             <div class="title-border">Nos projets</div>
 
                             <div class="row">
-                                <%int id = 1;%>
-                                <c:forEach items="${model.maisons}" var="p">
-                                    <div class="col-md-6">
-                                        <div class="collection-item box-grey">
-                                            <div class="collection-image">
-                                                <a href="index.jsp" class="zoom-effect">
-                                                    <img src="img/appartement.jpg" alt="appartement">
-                                                </a>
-                                            </div>
-                                            <div class="collection-desc">
-                                                type  : ${p.address }<br>
-                                                A partir de ${p.prix }
-                                                Fcfa.<br />
-                                                Il comport    :<br>
-                                                ${p.nombreChambre } Chambre
-                                                ${p.nombreBain } avec Salle de Bain<br>
-                                                ${p.nombreSalon } sallon<br>
+                                <%ArrayList<Maison> list = new MaisonDAO().listMaisonT();%>
+                                <%for (int i = 0; i < list.size(); i++) {%>
 
 
-                                            </div>
+                                <div class="col-md-6">
+                                    <div class="collection-item box-grey">
+                                        <div class="collection-image">
+                                            <a href="index.jsp" class="zoom-effect">
+                                                <img src="img/appartement.jpg" alt="appartement">
+                                            </a>
+                                        </div>
+                                        <div class="collection-desc">
+                                            type  : <%=list.get(i).getAddress()%><br>
+                                            A partir de <%=list.get(i).getPrix()%>
+                                            Fcfa.<br />
+                                            Il comport    :<br>
+                                            <%=list.get(i).getNombreChambre()%> Chambre
+                                            <%=list.get(i).getNombreToilette()%> avec Salle de Bain<br>
+                                            <%=list.get(i).getNombreEtage()%> sallon<br>
+
+
                                         </div>
                                     </div>
-                                </c:forEach>
+                                </div>
+                                <%}%>
+                                <%ArrayList<Maison> listd = new MaisonDAO().listMaisonD();%>
+                                <%for (int i = 0; i < list.size(); i++) {%>
 
+
+                                <div class="col-md-6">
+                                    <div class="collection-item box-grey">
+                                        <div class="collection-image">
+                                            <a href="index.jsp" class="zoom-effect">
+                                                <img src="img/appartement.jpg" alt="appartement">
+                                            </a>
+                                        </div>
+                                        <div class="collection-desc">
+                                            type  : <%=list.get(i).getAddress()%><br>
+                                            A partir de <%=list.get(i).getPrix()%>
+                                            Fcfa.<br />
+                                            Il comport    :<br>
+                                            <%=list.get(i).getNombreChambre()%> Chambre
+                                            <%=list.get(i).getNombreToilette()%> avec Salle de Bain<br>
+                                            <%=list.get(i).getNombreEtage()%> sallon<br>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <%}%>
                             </div>
+
                         </div>
                     </div>
                 </div>
