@@ -369,117 +369,118 @@
             .site-slider .slide-caption .caption-big{
                 font-size               : 36px;
                 margin-bottom           : 10px;
-            }
-            .site-slider .slide-caption .caption-small{
-                display                 : inline-block;
-                position                : relative;
-                font-size               : 30px;
-                font-weight             : 400;
-                padding                 : 0 30px;
-            }
-            .site-slider .slide-caption .caption-small:before,
-            .site-slider .slide-caption .caption-small:after{
-                content                 : " ";
-                position                : absolute;
-                top                     : 50%;
-                width                   : 20px;
-                height                  : 2px;
-                background-color        : #c5a35b;
-            }
-            .site-slider .slide-caption .caption-small:before{
-                left                    : 0;
-            }
-            .site-slider .slide-caption .caption-small:after{
-                right                   : 0;
-            }
+                .collection-desc {
+                }
+                .site-slider .slide-caption .caption-small{
+                    display                 : inline-block;
+                    position                : relative;
+                    font-size               : 30px;
+                    font-weight             : 400;
+                    padding                 : 0 30px;
+                }
+                .site-slider .slide-caption .caption-small:before,
+                    .site-slider .slide-caption .caption-small:after{
+                    content                 : " ";
+                    position                : absolute;
+                    top                     : 50%;
+                    width                   : 20px;
+                    height                  : 2px;
+                    background-color        : #c5a35b;
+                }
+                .site-slider .slide-caption .caption-small:before{
+                    left                    : 0;
+                }
+                .site-slider .slide-caption .caption-small:after{
+                    right                   : 0;
+                }
 
-        </style>
-
-
-
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-    <body>
-        <div class='container'>
-            <!-- Header -->
-            <header class="site-header box-white padding-all clearfix">
-
-                <div class="header-logo"><a href="#"><img src="img/logo.png" alt="Espace"></a></div>
-
-                <div class="header-menu">
-                    <button class="mobile-menu"><i class="fa fa-bars fa-2x"></i></button>
-
-                    <!-- <ul class="clearfix">
-                        <li class="active"><a href="index.jsp">Accueil</a>
-                        </li>
-                        <li><a href="jsp/presentation.html">Présentation</a>
-                        </li>
-                        <li><a href="#">Nos Logement</a>
-                            <ul>
-                                <li><a href="appartement.php?action=appartement">Appartement </a></li>
-                                <li><a href="batiment.php?action=batiment">Batiment</a></li>
-
-                            </ul>
-                        </li>
-                        </li>
-                        <li><a href="jsp/contact.html">Contact</a>
-                        </li>
-                        <li><tt/><a href="jsp/connection.jsp"><b class='glyphicon glyphicon-log-in'></b>       connection</a></li>
-                    </ul>-->
+            </style>
 
 
 
+            <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        </head>
+        <body>
+            <div class='container'>
+                <!-- Header -->
+                <header class="site-header box-white padding-all clearfix">
+
+                    <div class="header-logo"><a href="#"><img src="img/logo.png" alt="Espace"></a></div>
+
+                    <div class="header-menu">
+                        <button class="mobile-menu"><i class="fa fa-bars fa-2x"></i></button>
+
+                        <!-- <ul class="clearfix">
+                            <li class="active"><a href="index.jsp">Accueil</a>
+                            </li>
+                            <li><a href="jsp/presentation.html">Présentation</a>
+                            </li>
+                            <li><a href="#">Nos Logement</a>
+                                <ul>
+                                    <li><a href="appartement.php?action=appartement">Appartement </a></li>
+                                    <li><a href="batiment.php?action=batiment">Batiment</a></li>
+
+                                </ul>
+                            </li>
+                            </li>
+                            <li><a href="jsp/contact.html">Contact</a>
+                            </li>
+                            <li><tt/><a href="jsp/connection.jsp"><b class='glyphicon glyphicon-log-in'></b>       connection</a></li>
+                        </ul>-->
 
 
 
 
 
-                </div>
-                <br>
-                <br>
-                <br>
-                <a href="jsp/AccueilThies.jsp" class="btn btn-info col-sm-6"> thies</a>
-                <br>
-                <br>
-                <a href="jsp/AccueilDakar.jsp" class="btn btn-info col-sm-6"> dakar</a>
-                <br>
-            </header>
 
-            <!-- Footer -->
-            <footer class="site-footer">
-                <div class="footer-top box-grey padding-all">
-                    <div class="row">
 
-                        <div class="col-md-4">
-                            <div class="title-border">A propos</div>
-                            <p>Noter structures FUTURA IMMO size à Thies est le meilleur endroit pour le logement propice. Nous disposons une variété d’appartement et de bâtiment dans    tous la zone de Thiès.
-                                A noter aussi que les prix sont abordables.
-                            </p><p>Notre équipe est en place depuis le début de cette aventure et <b>la fidélité de nos clients est à nos yeux, la plus belle marque de reconnaissance...</b></p><div class="text-center"><div class="fb_button" data-url="https://www.facebook.com"><i class="fa fa-facebook-square"></i>Partager sur Facebook</div></div>               </div>
-
-                        <div class="col-md-4">
-                            <div class="title-border">Liens</div>
-                            <ul><li><a rel="" target="_self" href="#">Location-vente à Dakar</a></li><li><a rel="" target="_self" href="#">Appartement à vendre à Dakar</a></li><li><a rel="" target="_self" href="#">Devenir propriétaire au Sénégal</a></li><li><a rel="" target="_self" href="#">Conseil achat immobilier à Dakar<br></a></li><li><a rel="nofollow" target="_blank" href="#">Espace Ataya Properties sur Facebook<br></a></li></ul>               </div>
-
-                        <div class="col-md-4">
-                            <div class="title-border">Contact</div>
-                            <p>FUTURA IMMO <br>BP 221 - BP 222 - THIES - SENEGAL</p><p>Tel : (+221) 33 888 88 88</p><br>
-                            <div class="fb-page" data-href="#" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/" class="fb-xfbml-parse-ignore"><a href="">GARMY</a></blockquote></div>
-                        </div>
 
                     </div>
-                </div>
-                <div class="footer-bottom">
-                    ©2017 <a href="#">Espace FUTURA IMMO  Thies Sénégal</a>. Tous droits réservés.
-                    Site réalisé par <a href="#" target="_blank">Garmy</a>.
-                </div>
-            </footer>
-        </div>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script   src="https://code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWiJmMgeXIvpQzFSOBfjsgnXfykL-vvBk&signed_in=true&callback=initMap"
-        async defer></script>
-        <script type="text/javascript" src="bxslider.js"></script>
+                    <br>
+                    <br>
+                    <br>
+                    <a href="jsp/AccueilThies.jsp" class="btn btn-info col-sm-6"> thies</a>
+                    <br>
+                    <br>
+                    <a href="jsp/AccueilDakar.jsp" class="btn btn-info col-sm-6"> dakar</a>
+                    <br>
+                </header>
 
-    </body>
-</html>
+                <!-- Footer -->
+                <footer class="site-footer">
+                    <div class="footer-top box-grey padding-all">
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <div class="title-border">A propos</div>
+                                <p>Noter structures FUTURA IMMO size à Thies est le meilleur endroit pour le logement propice. Nous disposons une variété d’appartement et de bâtiment dans    tous la zone de Thiès.
+                                    A noter aussi que les prix sont abordables.
+                                </p><p>Notre équipe est en place depuis le début de cette aventure et <b>la fidélité de nos clients est à nos yeux, la plus belle marque de reconnaissance...</b></p><div class="text-center"><div class="fb_button" data-url="https://www.facebook.com"><i class="fa fa-facebook-square"></i>Partager sur Facebook</div></div>               </div>
+
+                            <div class="col-md-4">
+                                <div class="title-border">Liens</div>
+                                <ul><li><a rel="" target="_self" href="#">Location-vente à Dakar</a></li><li><a rel="" target="_self" href="#">Appartement à vendre à Dakar</a></li><li><a rel="" target="_self" href="#">Devenir propriétaire au Sénégal</a></li><li><a rel="" target="_self" href="#">Conseil achat immobilier à Dakar<br></a></li><li><a rel="nofollow" target="_blank" href="#">Espace Ataya Properties sur Facebook<br></a></li></ul>               </div>
+
+                            <div class="col-md-4">
+                                <div class="title-border">Contact</div>
+                                <p>FUTURA IMMO <br>BP 221 - BP 222 - THIES - SENEGAL</p><p>Tel : (+221) 33 888 88 88</p><br>
+                                <div class="fb-page" data-href="#" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/" class="fb-xfbml-parse-ignore"><a href="">GARMY</a></blockquote></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        ©2017 <a href="#">Espace FUTURA IMMO  Thies Sénégal</a>. Tous droits réservés.
+                        Site réalisé par <a href="#" target="_blank">Garmy</a>.
+                    </div>
+                </footer>
+            </div>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <script   src="https://code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWiJmMgeXIvpQzFSOBfjsgnXfykL-vvBk&signed_in=true&callback=initMap"
+            async defer></script>
+            <script type="text/javascript" src="bxslider.js"></script>
+
+        </body>
+    </html>

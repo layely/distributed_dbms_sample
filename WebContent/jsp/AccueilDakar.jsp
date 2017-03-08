@@ -1,3 +1,9 @@
+<%@page import="database.ChambreDAO"%>
+<%@page import="metier.Chambre"%>
+<%@page import="metier.Chambre"%>
+<%@page import="database.AppartementDAO"%>
+<%@page import="metier.Appartement"%>
+<%@page import="metier.Appartement"%>
 <%@page import="database.MaisonDAO"%>
 <%@page import="metier.Maison"%>
 <%@page import="metier.Logement"%>
@@ -411,21 +417,21 @@
                     <button class="mobile-menu"><i class="fa fa-bars fa-2x"></i></button>
 
                     <ul class="clearfix">
-                        <li class="active"><a href="index.jsp">Accueil</a>
+                        <li class="active"><a href="AccueilDakar.jsp">Accueil</a>
                         </li>
-                        <li><a href="jsp/presentation.html">Présentation</a>
+                        <li><a href="presentation.html">Présentation</a>
                         </li>
                         <li><a href="#">Nos Logement</a>
                             <ul>
-                                <li><a href="appartement.php?action=appartement">Appartement </a></li>
-                                <li><a href="batiment.php?action=batiment">Batiment</a></li>
+                                <li><a href="AccueilThies.jsp">Thies </a></li>
+                                <li><a href="AccueilDakar.jsp">Dakar</a></li>
 
                             </ul>
                         </li>
                         </li>
-                        <li><a href="jsp/contact.html">Contact</a>
+                        <li><a href="contact.html">Contact</a>
                         </li>
-                        <li><tt/><a href="jsp/connection.jsp"><b class='glyphicon glyphicon-log-in'></b>       connection</a></li>
+                        <li><a href="connection.jsp"><b class='glyphicon glyphicon-log-in'></b>       connection</a></li>
                     </ul>
 
 
@@ -461,6 +467,56 @@
                                             <%=list.get(i).getNombreChambre()%> Chambre
                                             <%=list.get(i).getNombreToilette()%> avec Salle de Bain<br>
                                             <%=list.get(i).getNombreEtage()%> sallon<br>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <%}%>
+                                <%ArrayList<Appartement> lista = new AppartementDAO().listAppartementD();%>
+                                <%for (int i = 0; i < lista.size(); i++) {%>
+
+
+                                <div class="col-md-6">
+                                    <div class="collection-item box-grey">
+                                        <div class="collection-image">
+                                            <a href="index.jsp" class="zoom-effect">
+                                                <img src="../img/appartement.jpg" alt="appartement">
+                                            </a>
+                                        </div>
+                                        <div class="collection-desc">
+                                            type  : Appartement<br>
+                                            A partir de <%=lista.get(i).getPrix()%>
+                                            Fcfa.<br />
+                                            Il comport    :<br>
+                                            <%=lista.get(i).getNombreChambre()%> Chambre
+                                            <%=lista.get(i).getNombreToilette()%> avec Salle de Bain<br>
+                                            <%=lista.get(i).getNombreCuisine()%> cuisin<br>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <%}%>
+                                <%ArrayList<Chambre> listc = new ChambreDAO().listChambreD();%>
+                                <%for (int i = 0; i < listc.size(); i++) {%>
+
+
+                                <div class="col-md-6">
+                                    <div class="collection-item box-grey">
+                                        <div class="collection-image">
+                                            <a href="index.jsp" class="zoom-effect">
+                                                <img src="../img/appartement.jpg" alt="appartement">
+                                            </a>
+                                        </div>
+                                        <div class="collection-desc">
+                                            type  : Chambre<br>
+                                            A partir de <%=listc.get(i).getPrix()%>
+                                            Fcfa.<br />
+                                            Il comport    :<br>
+                                            <%=listc.get(i).getNombreBalcon()%> balcon
+                                            <%=listc.get(i).getNombreToilette()%> avec Salle de Bain<br>
+                                            <%=listc.get(i).getSurface()%>  de surface<br>
 
 
                                         </div>
