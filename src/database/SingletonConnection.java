@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,9 @@ public class SingletonConnection {
     private static final String COLONE_CONNECTION_INFO_PORT = "port";
     private static final String COLONE_CONNECTION_INFO_USERNAME = "username";
     private static final String COLONE_CONNECTION_INFO_PASSWORD = "password";
+
+    public static final String KEY_LAST_ID_LOGEMENT = "last_id_logement";
+    public static final String KEY_LAST_ID_PROPRIETAIRE = "last_id_proprietaire";
 
     //Object de connection à la BD centrale;
     private static Connection connectionCentrale = null;
@@ -110,4 +114,44 @@ public class SingletonConnection {
         }
     }
 
+    public static String getValue(String key) {
+        String valeur = "-1";
+        Connection conn = SingletonConnection.getConnectionFromFragmentCentrale();
+        try {
+            PreparedStatement ps = conn.prepareStatement("select valeur from parametres where cle='" + key + "'");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                valeur = rs.getString("valeur");
+            }
+            ps.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return valeur;
+    }
+
+    public static int getIntValue(String key) {
+        String valStr = getValue(key);
+        try {
+            return Integer.parseInt(valStr);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    public static void setValue(String newValue) {
+        Connection conn = SingletonConnection.getConnectionFromFragmentCentrale();
+        try {
+            PreparedStatement ps = conn.prepareStatement("update  parametres set valeur=?");
+            ps.setString(1, newValue);
+            ps.executeUpdate();
+            ps.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 }

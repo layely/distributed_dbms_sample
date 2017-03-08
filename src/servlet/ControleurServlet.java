@@ -5,6 +5,7 @@ import database.ChambreDAO;
 import database.IdLogement;
 import database.MaisonDAO;
 import database.ProprietaireDAO;
+import database.SingletonConnection;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
@@ -47,7 +48,7 @@ public class ControleurServlet extends HttpServlet {
 
         String action = request.getParameter("action");
         request.setAttribute("model", p);
-
+        int lastIdProprietaire = SingletonConnection.getIntValue(SingletonConnection.KEY_LAST_ID_PROPRIETAIRE);
         if (action != null) {
             if (action.equals("Enregistrer")) {
                 try {
@@ -57,10 +58,12 @@ public class ControleurServlet extends HttpServlet {
                     p.setMail(request.getParameter("mail"));
                     p.setTel(request.getParameter("telephone"));
                     p.setPassword(request.getParameter("password"));
-                    p.setNumProprietaire(new IdLogement().getIdP());
+                    p.setNumProprietaire(lastIdProprietaire + 1);
 
                     implProprietaire.addProprietaire("dakar", p);
                     implProprietaire.addProprietaire("thies", p);
+
+                    SingletonConnection.setValue(String.valueOf(lastIdProprietaire));
 
                 } catch (Exception e) {
                     e.printStackTrace();
