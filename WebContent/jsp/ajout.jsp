@@ -400,7 +400,7 @@
                     <button class="mobile-menu"><i class="fa fa-bars fa-2x"></i></button>
 
                     <ul class="clearfix">
-                        <li><a href="index.php?action=tout">Accueil</a>
+                        <li><a href="../index.jsp">Accueil</a>
                         </li>
                         <li><a href="presentation.html">Présentation</a>
                         </li>
@@ -416,12 +416,6 @@
                         <li><a href="contact.html">Contact</a>
                         </li>
                     </ul>
-
-
-
-
-
-
 
 
                 </div>

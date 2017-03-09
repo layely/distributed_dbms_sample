@@ -55,7 +55,7 @@ public class ChambreDAO {
                 chambre.setNombreBalcon(rs.getInt("nombreBalcon"));
 
                 chambre.setNumProprietaire(rs.getInt("numProprietaire"));
-                chambre.setNumVille(rs.getInt("numVille"));
+                chambre.setNomVille(rs.getString("nomVille"));
                 chambre.setPrix(rs.getInt("prix"));
                 chambre.setSurface(rs.getDouble("surface"));
                 list.add(chambre);
@@ -84,7 +84,7 @@ public class ChambreDAO {
                 chambre.setNombreBalcon(rs.getInt("nombreBalcon"));
 
                 chambre.setNumProprietaire(rs.getInt("numProprietaire"));
-                chambre.setNumVille(rs.getInt("numVille"));
+                chambre.setNomVille(rs.getString("nomVille"));
                 chambre.setPrix(rs.getInt("prix"));
                 chambre.setSurface(rs.getDouble("surface"));
                 list.add(chambre);
@@ -112,7 +112,7 @@ public class ChambreDAO {
                 chambre.setNombreBalcon(rs.getInt("nombreBalcon"));
 
                 chambre.setNumProprietaire(rs.getInt("numProprietaire"));
-                chambre.setNumVille(rs.getInt("numVille"));
+                chambre.setNomVille(rs.getString("nomVille"));
                 chambre.setPrix(rs.getInt("prix"));
                 chambre.setSurface(rs.getDouble("surface"));
                 list.add(chambre);
@@ -135,7 +135,7 @@ public class ChambreDAO {
             ps.setInt(1, chambre.getNumLogement());
             ps.setString(2, chambre.getDescription());
             ps.setInt(3, chambre.getPrix());
-            ps.setInt(4, chambre.getNumVille());
+            ps.setString(4, ville.toUpperCase());
             ps.setString(5, chambre.getAddress());
             ps.setInt(6, chambre.getNumProprietaire());
             ps.setDouble(7, chambre.getSurface());
@@ -146,7 +146,7 @@ public class ChambreDAO {
             e.printStackTrace();
         }
         try {
-            PreparedStatement ps = conn.prepareStatement("insert into table_chambre values(?,?,?,?,?)");
+            PreparedStatement ps = conn.prepareStatement("insert into table_chambre values(?,?,?)");
             // on ecrire une requette d'insertion sur tous les table.
 
             ps.setInt(1, chambre.getNumLogement());
