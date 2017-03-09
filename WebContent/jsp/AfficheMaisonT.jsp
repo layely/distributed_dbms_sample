@@ -435,14 +435,14 @@
                     <label  class="col-sm-6 control-label"><%= new MaisonDAO().listMaisonT().get(i).getDescription()%> </label>
                 </div>
                 <div class='row'>
-                    <label  class="col-sm-6 control-label">Liste des  Attribut</label>
-                    <label  class="col-sm-6 control-label">nombre de balcon  <%= new MaisonDAO().listMaisonT().get(i).getNombreBalcon()%> </label>
-                    <label  class="col-sm-6 control-label">nombre de Chambre  <%= new MaisonDAO().listMaisonT().get(i).getNombreChambre()%> </label>
-                    <label  class="col-sm-6 control-label">nombre de cuisine  <%= new MaisonDAO().listMaisonT().get(i).getNombreCuisine()%> </label>
-                    <label  class="col-sm-6 control-label">nombre d'etage  <%= new MaisonDAO().listMaisonT().get(i).getNombreEtage()%> </label>
-                    <label  class="col-sm-6 control-label">nombre de parking  <%= new MaisonDAO().listMaisonT().get(i).getNombreParking()%> </label>
-                    <label  class="col-sm-6 control-label">nombre de toilette <%= new MaisonDAO().listMaisonT().get(i).getNombreToilette()%> </label>
-                    <label  class="col-sm-6 control-label">surface <%= new MaisonDAO().listMaisonT().get(i).getSurface()%> </label>
+                    <label  class="col-sm-12 control-label">Liste des  Attribut</label>
+                    <label  class="col-sm-12 control-label">nombre de balcon  <%= new MaisonDAO().listMaisonT().get(i).getNombreBalcon()%> </label>
+                    <label  class="col-sm-12 control-label">nombre de Chambre  <%= new MaisonDAO().listMaisonT().get(i).getNombreChambre()%> </label>
+                    <label  class="col-sm-12 control-label">nombre de cuisine  <%= new MaisonDAO().listMaisonT().get(i).getNombreCuisine()%> </label>
+                    <label  class="col-sm-12 control-label">nombre d'etage  <%= new MaisonDAO().listMaisonT().get(i).getNombreEtage()%> </label>
+                    <label  class="col-sm-12 control-label">nombre de parking  <%= new MaisonDAO().listMaisonT().get(i).getNombreParking()%> </label>
+                    <label  class="col-sm-12 control-label">nombre de toilette <%= new MaisonDAO().listMaisonT().get(i).getNombreToilette()%> </label>
+                    <label  class="col-sm-12 control-label">surface <%= new MaisonDAO().listMaisonT().get(i).getSurface()%> </label>
                 </div>
                 <!-- Footer -->
                 <footer class="site-footer">

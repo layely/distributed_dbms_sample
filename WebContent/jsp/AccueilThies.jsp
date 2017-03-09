@@ -454,7 +454,7 @@
                                 <div class="col-md-6">
                                     <div class="collection-item box-grey">
                                         <div class="collection-image">
-                                            <% String chaine = "AfficheMaison.jsp?action=" + i;%>
+                                            <% String chaine = "AfficheMaisonT.jsp?action=" + i;%>
                                             <a href=<%=chaine%> class="zoom-effect">
                                                 <img src="../img/maison.jpg" alt="maison">
                                             </a>
@@ -480,7 +480,8 @@
                                 <div class="col-md-6">
                                     <div class="collection-item box-grey">
                                         <div class="collection-image">
-                                            <a href="index.jsp" class="zoom-effect">
+                                            <% String chaine = "AfficheAppartementT.jsp?action=" + i;%>
+                                            <a href=<%=chaine%> class="zoom-effect">
                                                 <img src="../img/appartement.jpg" alt="appartement">
                                             </a>
                                         </div>
@@ -505,7 +506,8 @@
                                 <div class="col-md-6">
                                     <div class="collection-item box-grey">
                                         <div class="collection-image">
-                                            <a href="index.jsp" class="zoom-effect">
+                                            <% String chaine = "AfficheChambreT.jsp?action=" + i;%>
+                                            <a href=<%=chaine%> class="zoom-effect">
                                                 <img src="../img/appartement.jpg" alt="appartement">
                                             </a>
                                         </div>

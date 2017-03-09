@@ -9,7 +9,7 @@ import metier.Maison;
 
 public class MaisonDAO {
 
-    public static int logement_id = 0;
+    public static int index = 0;
 
     public void deleteMaison(int id) {
         Connection conn = SingletonConnection.getConnection("dakar");
