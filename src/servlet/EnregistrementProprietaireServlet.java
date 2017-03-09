@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import metier.Proprietaire;
 
 public class EnregistrementProprietaireServlet extends HttpServlet {
@@ -55,7 +56,8 @@ public class EnregistrementProprietaireServlet extends HttpServlet {
 
                     implProprietaire.addProprietaire("dakar", p);
                     implProprietaire.addProprietaire("thies", p);
-
+                    HttpSession session = request.getSession();
+                    session.setAttribute("proprietaire", p);
                     SingletonConnection.setValue(SingletonConnection.KEY_LAST_ID_PROPRIETAIRE, String.valueOf(lastIdProprietaire + 1));
 
                 } catch (Exception e) {
@@ -70,6 +72,8 @@ public class EnregistrementProprietaireServlet extends HttpServlet {
                     String password = request.getParameter("password_authentification");
 
                     Proprietaire prop = implProprietaire.getProprietaire(email, password);
+                    HttpSession session = request.getSession();
+                    session.setAttribute("proprietaire", prop);
 
                     if (prop != null) {
                         request.getRequestDispatcher("jsp/ajout.jsp").forward(request,
