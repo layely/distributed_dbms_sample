@@ -5,7 +5,7 @@ public class Proprietaire {
     private int numProprietaire;
     private String nom;
     private String prenom;
-    private String address;
+    private String addresse;
     private String tel;
     private String mail;
     private String password;
@@ -35,11 +35,11 @@ public class Proprietaire {
     }
 
     public String getAddress() {
-        return address;
+        return addresse;
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        this.addresse = address;
     }
 
     public String getTel() {

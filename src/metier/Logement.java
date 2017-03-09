@@ -7,7 +7,7 @@ public class Logement implements Serializable{
 	private int numLogement;
 	private String description;
 	private int prix;
-	private int numVille;
+	private String nomVille;
 	private String address;
 	private int numProprietaire;
 	private double surface;
@@ -43,11 +43,11 @@ public class Logement implements Serializable{
 	public void setPrix(int prix) {
 		this.prix = prix;
 	}
-	public int getNumVille() {
-		return numVille;
+	public String getNumVille() {
+		return nomVille;
 	}
-	public void setNumVille(int numVille) {
-		this.numVille = numVille;
+	public void setNumVille(String nomVille) {
+		this.nomVille = nomVille;
 	}
 	public String getAddress() {
 		return address;
