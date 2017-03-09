@@ -1,9 +1,27 @@
+<%@page import="database.ChambreDAO"%>
+<%@page import="metier.Chambre"%>
+<%@page import="metier.Chambre"%>
+<%@page import="database.AppartementDAO"%>
+<%@page import="metier.Appartement"%>
+<%@page import="metier.Appartement"%>
+<%@page import="database.MaisonDAO"%>
+<%@page import="metier.Maison"%>
+<%@page import="metier.Logement"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.ResultSet"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+         pageEncoding="UTF-8"%>
 
-<!DOCTYPE>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
+
         <meta charset="utf-8">
-        <title>presentation</title>
+        <title>Accueil</title>
         <style type="text/css">
             body{
                 background-color: red;
@@ -250,7 +268,7 @@
                 position                : relative;
                 padding                 : 20px 20px 20px 170px;
                 margin-bottom           : 30px;
-                height                  : 150px;
+                height                  : 170px;
             }
             .section-collection .collection-item .collection-image{
                 width                   : 150px;
@@ -393,13 +411,13 @@
             <!-- Header -->
             <header class="site-header box-white padding-all clearfix">
 
-                <div class="header-logo"><a href="http://www.espaceimmosenegal.com/"><img src="img/logo.png" alt="Espace"></a></div>
+                <div class="header-logo"><a href="#"><img src="img/logo.png" alt="Espace"></a></div>
 
                 <div class="header-menu">
                     <button class="mobile-menu"><i class="fa fa-bars fa-2x"></i></button>
 
                     <ul class="clearfix">
-                        <li><a href="AccueilThies.jsp">Accueil</a>
+                        <li class="active"><a href="AccueilDakar.jsp">Accueil</a>
                         </li>
                         <li><a href="presentation.html">Présentation</a>
                         </li>
@@ -409,10 +427,11 @@
                                 <li><a href="AccueilDakar.jsp">Dakar</a></li>
 
                             </ul>
-
-                        <li><a href="contact.html">Contact</a></li>
+                        </li>
+                        </li>
+                        <li><a href="contact.html">Contact</a>
+                        </li>
                         <li><a href="connection.jsp"><b class='glyphicon glyphicon-log-in'></b>       connection</a></li>
-
                     </ul>
 
 
@@ -426,11 +445,89 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-collection box-white padding-all">
-                            <div class="title-border">Presentation</div>
+                            <div class="title-border">Nos projets</div>
 
-                            L’agence PAQUET IMMOBILIER est une entreprise familiale et indépendante, forte d’une expérience de 50 ans.
-                            Crée par Monsieur PAQUET Pierre, elle est aujourd’hui composée d’une équipe de quatre personnes, managée par son fils Eric PAQUET, Gérant.
-                            Soucieuse de votre confiance, elle vous assure un suivi complet et personnalisé dans l’accompagnement de vos projets, vente, achat, location, expertise, avec tout le professionnalisme et le sérieux qu’elle a acquis. L’agence est installée au cœur du centre ville de POITIERS, sur le plateau, à deux pas du Palais de Justice, à proximité de parkings publics et de la gare.
+                            <div class="row">
+                                <%ArrayList<Maison> list = new MaisonDAO().listMaisonD();%>
+                                <%for (int i = 0; i < list.size(); i++) {%>
+
+
+                                <div class="col-md-6">
+                                    <div class="collection-item box-grey">
+                                        <div class="collection-image">
+                                            <% String chaine = "AfficheMaisonD.jsp?action=" + i;%>
+                                            <a href=<%=chaine%> class="zoom-effect">
+                                                <img src="img/maison.jpg" alt="maison">
+                                            </a>
+                                        </div>
+                                        <div class="collection-desc">
+                                            type  : Maison<br>
+                                            A partir de <%=list.get(i).getPrix()%>
+                                            Fcfa.<br />
+                                            Il comport    :<br>
+                                            <%=list.get(i).getNombreChambre()%> Chambre
+                                            <%=list.get(i).getNombreToilette()%> avec Salle de Bain<br>
+                                            <%=list.get(i).getNombreEtage()%> sallon<br>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <%}%>
+                                <%ArrayList<Appartement> lista = new AppartementDAO().listAppartementD();%>
+                                <%for (int i = 0; i < lista.size(); i++) {%>
+
+
+                                <div class="col-md-6">
+                                    <div class="collection-item box-grey">
+                                        <div class="collection-image">
+                                            <% String chaine = "AfficheAppartementD.jsp?action=" + i;%>
+                                            <a href=<%=chaine%> class="zoom-effect">
+                                                <img src="../img/appartement.jpg" alt="appartement">
+                                            </a>
+                                        </div>
+                                        <div class="collection-desc">
+                                            type  : Appartement<br>
+                                            A partir de <%=lista.get(i).getPrix()%>
+                                            Fcfa.<br />
+                                            Il comport    :<br>
+                                            <%=lista.get(i).getNombreChambre()%> Chambre
+                                            <%=lista.get(i).getNombreToilette()%> avec Salle de Bain<br>
+                                            <%=lista.get(i).getNombreCuisine()%> cuisin<br>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <%}%>
+                                <%ArrayList<Chambre> listc = new ChambreDAO().listChambreD();%>
+                                <%for (int i = 0; i < listc.size(); i++) {%>
+
+
+                                <div class="col-md-6">
+                                    <div class="collection-item box-grey">
+                                        <div class="collection-image">
+                                            <% String chaine = "AfficheChambreD.jsp?action=" + i;%>
+                                            <a href=<%=chaine%> class="zoom-effect">
+                                                <img src="../img/chambre.jpg" alt="chambre">
+                                            </a>
+                                        </div>
+                                        <div class="collection-desc">
+                                            type  : Chambre<br>
+                                            A partir de <%=listc.get(i).getPrix()%>
+                                            Fcfa.<br />
+                                            Il comport    :<br>
+                                            <%=listc.get(i).getNombreBalcon()%> balcon
+                                            <%=listc.get(i).getNombreToilette()%> avec Salle de Bain<br>
+                                            <%=listc.get(i).getSurface()%>  de surface<br>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <%}%>
+
+                            </div>
 
                         </div>
                     </div>
@@ -446,16 +543,16 @@
                             <div class="title-border">A propos</div>
                             <p>Noter structures FUTURA IMMO size à Thies est le meilleur endroit pour le logement propice. Nous disposons une variété d’appartement et de bâtiment dans    tous la zone de Thiès.
                                 A noter aussi que les prix sont abordables.
-                            </p><p>Notre équipe est en place depuis le début de cette aventure et <b>la fidélité de nos clients est à nos yeux, la plus belle marque de reconnaissance...</b></p><div class="text-center"><div class="fb_button" data-url="https://www.facebook.com/sharer/sharer.php?u=http://www.espaceimmosenegal.com/accueil.html&display=popup&ref=plugin&src=share_button"><i class="fa fa-facebook-square"></i>Partager sur Facebook</div></div>               </div>
+                            </p><p>Notre équipe est en place depuis le début de cette aventure et <b>la fidélité de nos clients est à nos yeux, la plus belle marque de reconnaissance...</b></p><div class="text-center"><div class="fb_button" data-url="https://www.facebook.com"><i class="fa fa-facebook-square"></i>Partager sur Facebook</div></div>               </div>
 
                         <div class="col-md-4">
                             <div class="title-border">Liens</div>
-                            <ul><li><a rel="" target="_self" href="http://www.espaceimmosenegal.com/location-vente.html">Location-vente à Dakar</a></li><li><a rel="" target="_self" href="#">Appartement à vendre à Dakar</a></li><li><a rel="" target="_self" href="#">Devenir propriétaire au Sénégal</a></li><li><a rel="" target="_self" href="#">Conseil achat immobilier à Dakar<br></a></li><li><a rel="nofollow" target="_blank" href="#">Espace Ataya Properties sur Facebook<br></a></li></ul>               </div>
+                            <ul><li><a rel="" target="_self" href="#">Location-vente à Dakar</a></li><li><a rel="" target="_self" href="#">Appartement à vendre à Dakar</a></li><li><a rel="" target="_self" href="#">Devenir propriétaire au Sénégal</a></li><li><a rel="" target="_self" href="#">Conseil achat immobilier à Dakar<br></a></li><li><a rel="nofollow" target="_blank" href="#">Espace Ataya Properties sur Facebook<br></a></li></ul>               </div>
 
                         <div class="col-md-4">
                             <div class="title-border">Contact</div>
                             <p>FUTURA IMMO <br>BP 221 - BP 222 - THIES - SENEGAL</p><p>Tel : (+221) 33 888 88 88</p><br>
-                            <div class="fb-page" data-href="https://www.facebook.com/EspaceImmobilierSenegal/" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/" class="fb-xfbml-parse-ignore"><a href="">GARMY</a></blockquote></div>
+                            <div class="fb-page" data-href="#" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/" class="fb-xfbml-parse-ignore"><a href="">GARMY</a></blockquote></div>
                         </div>
 
                     </div>
@@ -467,9 +564,10 @@
             </footer>
         </div>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script   src="https://code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWiJmMgeXIvpQzFSOBfjsgnXfykL-vvBk&signed_in=true&callback=initMap"
         async defer></script>
-
+        <script type="text/javascript" src="bxslider.js"></script>
 
     </body>
 </html>

@@ -29,7 +29,7 @@ public class AppartementDAO {
                 appartement.setNombreCuisine(rs.getInt("nombreCuisine"));
                 appartement.setNombreToilette(rs.getInt("nombreToilette"));
                 appartement.setNumProprietaire(rs.getInt("numProprietaire"));
-                appartement.setNumVille(rs.getInt("numVille"));
+                appartement.setNomVille(rs.getString("nomVille"));
                 appartement.setPrix(rs.getInt("prix"));
                 appartement.setSurface(rs.getDouble("surface"));
                 list.add(appartement);
@@ -59,7 +59,7 @@ public class AppartementDAO {
                 appartement.setNombreCuisine(rs.getInt("nombreCuisine"));
                 appartement.setNombreToilette(rs.getInt("nombreToilette"));
                 appartement.setNumProprietaire(rs.getInt("numProprietaire"));
-                appartement.setNumVille(rs.getInt("numVille"));
+                appartement.setNomVille(rs.getString("nomVille"));
                 appartement.setPrix(rs.getInt("prix"));
                 appartement.setSurface(rs.getDouble("surface"));
                 list.add(appartement);
@@ -114,7 +114,8 @@ public class AppartementDAO {
             ps.setInt(1, appartement.getNumLogement());
             ps.setString(2, appartement.getDescription());
             ps.setInt(3, appartement.getPrix());
-            ps.setInt(4, appartement.getNumVille());
+//            ps.setString(4, appartement.getNomVille());
+            ps.setString(4, ville);
             ps.setString(5, appartement.getAddress());
             ps.setInt(6, appartement.getNumProprietaire());
             ps.setDouble(7, appartement.getSurface());
@@ -170,7 +171,7 @@ public class AppartementDAO {
             appartement.setNombreCuisine(rs.getInt("nombreCuisine"));
             appartement.setNombreToilette(rs.getInt("nombreToilette"));
             appartement.setNumProprietaire(rs.getInt("numProprietaire"));
-            appartement.setNumVille(rs.getInt("numVille"));
+            appartement.setNomVille(rs.getString("nomVille"));
             appartement.setPrix(rs.getInt("prix"));
             appartement.setSurface(rs.getDouble("surface"));
             appartement.setEtage(rs.getInt("etage"));
