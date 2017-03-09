@@ -54,7 +54,7 @@ public class MaisonDAO {
             ps.setInt(1, maison.getNumLogement());
             ps.setString(2, maison.getDescription());
             ps.setInt(3, maison.getPrix());
-            ps.setInt(4, maison.getNumVille());
+            ps.setString(4, ville.toUpperCase());
             ps.setString(5, maison.getAddress());
             ps.setInt(6, maison.getNumProprietaire());
             ps.setDouble(7, maison.getSurface());
@@ -112,7 +112,7 @@ public class MaisonDAO {
             maison.setNombreCuisine(rs.getInt("nombreCuisine"));
             maison.setNombreToilette(rs.getInt("nombreToilette"));
             maison.setNumProprietaire(rs.getInt("numProprietaire"));
-            maison.setNumVille(rs.getInt("numVille"));
+            maison.setNomVille(rs.getString("nomVille"));
             maison.setPrix(rs.getInt("prix"));
             maison.setSurface(rs.getDouble("surface"));
             maison.setNombreEtage(rs.getInt("nombreEtage"));
@@ -144,7 +144,7 @@ public class MaisonDAO {
                 maison.setNombreCuisine(rs.getInt("nombreCuisine"));
                 maison.setNombreToilette(rs.getInt("nombreToilette"));
                 maison.setNumProprietaire(rs.getInt("numProprietaire"));
-                maison.setNumVille(rs.getInt("numVille"));
+                maison.setNomVille(rs.getString("nomVille"));
                 maison.setPrix(rs.getInt("prix"));
                 maison.setSurface(rs.getDouble("surface"));
                 list.add(maison);
@@ -174,7 +174,7 @@ public class MaisonDAO {
                 maison.setNombreCuisine(rs.getInt("nombreCuisine"));
                 maison.setNombreToilette(rs.getInt("nombreToilette"));
                 maison.setNumProprietaire(rs.getInt("numProprietaire"));
-                maison.setNumVille(rs.getInt("numVille"));
+                maison.setNomVille(rs.getString("nomVille"));
                 maison.setPrix(rs.getInt("prix"));
                 maison.setSurface(rs.getDouble("surface"));
                 list.add(maison);

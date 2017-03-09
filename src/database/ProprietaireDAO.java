@@ -29,7 +29,7 @@ public class ProprietaireDAO {
 //        }
 //
 //    }
-    public void addProprietaire(String v, Proprietaire p) {
+    public boolean addProprietaire(String v, Proprietaire p) {
         Connection conn = SingletonConnection.getConnection(v);
 
         try {
@@ -41,13 +41,16 @@ public class ProprietaireDAO {
             ps.setString(5, p.getTel());
             ps.setString(6, p.getMail());
             ps.setString(7, p.getPassword());
-            ps.executeUpdate();
+            int result = ps.executeUpdate();
             ps.close();
+            if (result > 0) {
+                return true;
+            }
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
+        return false;
     }
 
     public ArrayList<Proprietaire> getProprietaire() {

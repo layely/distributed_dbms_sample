@@ -5,6 +5,7 @@ import database.ChambreDAO;
 import database.MaisonDAO;
 import database.ProprietaireDAO;
 import database.SingletonConnection;
+import distribution_management.TransactionAjouterProprietaire;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +20,8 @@ public class EnregistrementProprietaireServlet extends HttpServlet {
     private MaisonDAO implMaison;
     private ChambreDAO implChambre;
     private ProprietaireDAO implProprietaire;
+
+    public static final String ATT_PROPRIETAIRE = "proprietaire";
 
     @Override
     public void init() throws ServletException {
@@ -54,8 +57,13 @@ public class EnregistrementProprietaireServlet extends HttpServlet {
                     p.setPassword(request.getParameter("password"));
                     p.setNumProprietaire(lastIdProprietaire + 1);
 
-                    implProprietaire.addProprietaire("dakar", p);
-                    implProprietaire.addProprietaire("thies", p);
+                    TransactionAjouterProprietaire transac = new TransactionAjouterProprietaire(p);
+                    Thread t = new Thread(transac);
+                    t.start();
+
+                    while (t.isAlive()) {
+                        Thread.sleep(10);
+                    }
                     HttpSession session = request.getSession();
                     session.setAttribute("proprietaire", p);
                     SingletonConnection.setValue(SingletonConnection.KEY_LAST_ID_PROPRIETAIRE, String.valueOf(lastIdProprietaire + 1));
@@ -76,8 +84,9 @@ public class EnregistrementProprietaireServlet extends HttpServlet {
                     session.setAttribute("proprietaire", prop);
 
                     if (prop != null) {
-                        request.getRequestDispatcher("jsp/ajout.jsp").forward(request,
-                                response);
+//                        request.getRequestDispatcher("jsp/ajout.jsp").forward(request,
+//                                response);
+                        response.sendRedirect("jsp/ajout.jsp");
                     } else {
                         request.getRequestDispatcher("jsp/connection.jsp").forward(request,
                                 response);

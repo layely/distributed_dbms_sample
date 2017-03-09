@@ -22,7 +22,7 @@ public class TestMain {
         m.setNombreToilette(4);
         m.setNumLogement(4);
         m.setNumProprietaire(1);
-        m.setNumVille(1);
+        m.setNomVille("thies");
         m.setPrix(150000);
         m.setSurface(451);
         impl.addMaison(m, "thies");

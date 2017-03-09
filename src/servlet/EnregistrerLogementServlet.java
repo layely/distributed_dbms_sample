@@ -15,9 +15,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import metier.Appartement;
 import metier.Chambre;
 import metier.Maison;
+import metier.Proprietaire;
 
 /**
  *
@@ -52,10 +54,10 @@ public class EnregistrerLogementServlet extends HttpServlet {
                 m.setDateConstruction("22/12/1993");
                 m.setDescription(request.getParameter("desription"));
                 if (request.getParameter("ville").equals("dakar")) {
-                    m.setNumVille(1);
+                    m.setNomVille("DAKAR");
                 }
                 if (request.getParameter("ville").equals("thies")) {
-                    m.setNumVille(2);
+                    m.setNomVille("THIES");
                 }
                 m.setNombreBalcon(Integer.parseInt(request.getParameter("balcon")));
                 m.setNombreChambre(Integer.parseInt(request.getParameter("chambre")));
@@ -72,14 +74,14 @@ public class EnregistrerLogementServlet extends HttpServlet {
             }
             if (request.getParameter("type").equals("appartement")) {
                 a = new Appartement();
-                a.setAddress("dakar");
+                a.setAddress(request.getParameter("ville"));
 
                 a.setDescription(request.getParameter("desription"));
                 if (request.getParameter("ville").equals("dakar")) {
-                    a.setNumVille(1);
+                    a.setNomVille("DAKAR");
                 }
                 if (request.getParameter("ville").equals("thies")) {
-                    a.setNumVille(2);
+                    a.setNomVille("THIES");
                 }
                 a.setNombreBalcon(Integer.parseInt(request.getParameter("balcon")));
                 a.setNombreChambre(Integer.parseInt(request.getParameter("chambre")));
@@ -98,16 +100,18 @@ public class EnregistrerLogementServlet extends HttpServlet {
 
                 c.setDescription(request.getParameter("desription"));
                 if (request.getParameter("ville").equals("dakar")) {
-                    c.setNumVille(1);
+                    c.setNomVille("DAKAR");
                 }
                 if (request.getParameter("ville").equals("thies")) {
-                    c.setNumVille(2);
+                    c.setNomVille("DAKAR");
                 }
                 c.setNombreBalcon(Integer.parseInt(request.getParameter("balcon")));
 
                 c.setNombreToilette(Integer.parseInt(request.getParameter("toilette")));
                 c.setNumLogement(lastIdLogement + 1);
-                c.setNumProprietaire(1);
+                HttpSession session = request.getSession(false);
+                Proprietaire p = (Proprietaire) session.getAttribute("proprietaire");
+                c.setNumProprietaire(p.getNumProprietaire());
                 c.setPrix(Integer.parseInt(request.getParameter("prix")));
                 c.setSurface(Integer.parseInt(request.getParameter("surface")));
                 implChambre.addChambre(c, request.getParameter("ville"));
