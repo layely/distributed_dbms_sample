@@ -5,7 +5,7 @@ import database.ChambreDAO;
 import database.MaisonDAO;
 import database.ProprietaireDAO;
 import database.SingletonConnection;
-import distribution_management.TransactionAjouterProprietaire;
+import distribution_management.TransactionInscriptionProprietaire;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -57,13 +57,9 @@ public class EnregistrementProprietaireServlet extends HttpServlet {
                     p.setPassword(request.getParameter("password"));
                     p.setNumProprietaire(lastIdProprietaire + 1);
 
-                    TransactionAjouterProprietaire transac = new TransactionAjouterProprietaire(p);
-                    Thread t = new Thread(transac);
-                    t.start();
+                    TransactionInscriptionProprietaire transac = new TransactionInscriptionProprietaire(p);
+                    transac.run();
 
-                    while (t.isAlive()) {
-                        Thread.sleep(10);
-                    }
                     HttpSession session = request.getSession();
                     session.setAttribute("proprietaire", p);
                     SingletonConnection.setValue(SingletonConnection.KEY_LAST_ID_PROPRIETAIRE, String.valueOf(lastIdProprietaire + 1));

@@ -12,27 +12,35 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  *
  * @author layely
  */
-public abstract class Transaction implements Runnable {
+public abstract class Transaction {
 
     private LinkedList<ReentrantReadWriteLock> verrous;
+    private LinkedList<Integer> typeVerrous;
 
     public Transaction() {
         verrous = new LinkedList<>();
+        typeVerrous = new LinkedList<>();
     }
 
-    @Override
     public abstract void run();
 
     public void libererVerous() {
+        int i = 0;
         for (ReentrantReadWriteLock v : verrous) {
-            if (v.isWriteLockedByCurrentThread()) {
-                v.readLock().lock();
+            if (typeVerrous.get(i) == Verrou.READ) {
+                v.readLock().unlock();
+            } else if (typeVerrous.get(i) == Verrou.WRITE) {
+                v.writeLock();
             }
-            v.readLock().unlock();
+            i++;
+//            if (v.isWriteLockedByCurrentThread()) {
+//                v.writeLock().lock();
+//            }
         }
     }
 
-    protected void addVerrou(ReentrantReadWriteLock v) {
+    protected void addVerrou(ReentrantReadWriteLock v, int type) {
         this.verrous.add(v);
+        this.typeVerrous.add(type);
     }
 }

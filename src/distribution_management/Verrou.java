@@ -13,11 +13,14 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  */
 public class Verrou {
 
+    public static final Integer READ = 0;
+    public static final Integer WRITE = 1;
+
     public static ReentrantReadWriteLock tableProprietaireVerrou;
     public static ReentrantReadWriteLock tableLogementVerrou;
 
     static {
-        tableProprietaireVerrou = new ReentrantReadWriteLock(true);
-        tableLogementVerrou = new ReentrantReadWriteLock(true);
+        tableProprietaireVerrou = new ReentrantReadWriteLock();
+        tableLogementVerrou = new ReentrantReadWriteLock();
     }
 }

@@ -12,14 +12,14 @@ import metier.Proprietaire;
  *
  * @author layely
  */
-public class TransactionAjouterProprietaire extends Transaction {
+public class TransactionInscriptionProprietaire extends Transaction {
 
     private Proprietaire p;
     private ProprietaireDAO pDAO;
 
     private int niveauVerrouillage;
 
-    public TransactionAjouterProprietaire(Proprietaire p) {
+    public TransactionInscriptionProprietaire(Proprietaire p) {
         pDAO = new ProprietaireDAO();
         this.p = p;
     }
@@ -27,12 +27,16 @@ public class TransactionAjouterProprietaire extends Transaction {
     @Override
     public void run() {
 
-        //Verouillage de la table Proprietaire
-        Verrou.tableProprietaireVerrou.readLock().lock();
-        this.addVerrou(Verrou.tableProprietaireVerrou);
+//        Verouillage de la table Proprietaire
+//        System.out.println("Before readlock");
+//        Verrou.tableProprietaireVerrou.readLock().lock();
+//        System.out.println("After readlock");
+        System.out.println("Before writelock");
         Verrou.tableProprietaireVerrou.writeLock().lock();
-        //Aquisition des verrous
-        //Execution des updates
+        this.addVerrou(Verrou.tableProprietaireVerrou, Verrou.WRITE);
+        System.out.println("After writelock");
+//        Aquisition des verrous
+//        Execution des updates
         Connection connDak = SingletonConnection.getConnection("dakar");
         Connection connThies = SingletonConnection.getConnection("thies");
 
